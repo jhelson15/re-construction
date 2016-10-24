@@ -57,13 +57,6 @@ function used_data(){
 }
 
 clear
-echo -e "\e[32m System by AsyrafAzhan"
-
-Contact info: 
-Telegram: @aaron_3796
-Email: superbvpnserver@gmail.com
-
-"
 PS3='Please enter your choice: '
 options=("Add User" "Renew User" "Delete User" "Current Connected Users" "User List" "Ram Status" "Users Not Expired" "Expired Users" "Used Data By Users" "Quit")
 select opt in "${options[@]}"
