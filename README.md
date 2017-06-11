@@ -6,7 +6,7 @@ bash Debian-kvm.sh
 ```
 ** CARA SETUP OCS **
 ```
-wget https://raw.githubusercontent.com/asyrafazhan/python/master/OCS-Panel.sh
+wget https://raw.githubusercontent.com/rasta-team/python/master/OCS-Panel.sh
 chmod +x OCS-Panel.sh
 bash OCS-Panel.sh
 ```
