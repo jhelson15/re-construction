@@ -1,15 +1,12 @@
 #!/bin/bash
 clear
 cd
+echo "connecting..."
 
-screenfetch
-                    	        
-                       		
-echo "----------------------------------------------------------"
+echo "clear"
 
-echo "----------- Welcom Jelson Barrozo Autoscript -------------"
-
-
+echo "connecting..."
+clear                    	        
 function create_user() {
 	useradd -M $uname
 	echo "$uname:$pass" | chpasswd
@@ -83,6 +80,11 @@ function used_data(){
 }
 
 clear
+screenfetch                       		
+echo "----------------------------------------------------------"
+
+echo "----------- Welcom Jelson Barrozo Autoscript -------------"
+echo ""
 PS3='Please enter your choice: '
 options=("Add User" "Renew User" "Delete User" "Current Connected Users" "User List" "Ram Status" "Users Not Expired" "Expired Users" "Used Data By Users" "Quit")
 select opt in "${options[@]}"
