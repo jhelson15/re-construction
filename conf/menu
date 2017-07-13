@@ -47,26 +47,12 @@ echo -e "Type (menu) to back."
 echo -e ""
 }
 function renew_user() {
-	read -p "Username : " uname
-	read -p "Expired (Days): " Date
 
-	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
-	usermod -e $exp $uname
-	useradd -e `date -d "$Date days" +"%Y-%m-%d"` -s /bin/false -M $uname
-	exp="$(chage -l $uname | grep "New expiration" | awk -F": " '{print $2}')"
-	echo -e "$Pass\n$Pass\n"|passwd $uname &> /dev/null
-	echo -e ""
-	echo -e "======New expiration date for:======"
-	echo -e "Username: $uname "
-	echo -e ""
-	echo -e "Expired Date: $exp"
-	echo -e "===================================="
-	echo -e ""
-	echo -e "Type (menu) to back menu option."
-
-	#echo "New expiration date for $uname: $expdate...";
-	
-	
+	usermod -e $uname $expdate
+	echo -e "====New expiration date for:===="
+	echo -e "Username: $uname"
+	echo -e "Expiration Date: $expdate\n"
+	echo -e "================================"
 	echo ""
 	echo "Thank you! Please type "menu" to back."
 }
@@ -150,8 +136,8 @@ do
 	      break
 	      ;;   
         "Renew User")
-            #read -p "Enter username to renew: " uname
-            #read -p "Enter Date extend for username[$uname](YYYY:MM:DD): " expdate
+            read -p "Enter username to renew: " uname
+            read -p "Enter Date extend for username[$uname](YYYY:MM:DD): " expdate
 	    
 	    renew_user
             break
