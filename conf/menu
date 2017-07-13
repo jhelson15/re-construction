@@ -8,8 +8,8 @@ echo "clear"
 echo "connecting..."
 clear                    	        
 function create_user() {
-	read -p "Username : " uname
-	read -p "Password : " Pass
+	read -p "Enter username: " uname
+	read -p "Enter Date for username[$uname] : " Pass
 	read -p "Expired (Days): " Date
 
 	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
@@ -33,14 +33,14 @@ IP=`dig +short myip.opendns.com @resolver1.opendns.com`
 
 uname=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
 hari=".02"
-Pass=`</dev/urandom tr -dc a-f0-9 | head -c9`
+pass=`</dev/urandom tr -dc a-f0-9 | head -c9`
 
 useradd -e `date -d "$hari days" +"%Y-%m-%d"` -s /bin/false -M $uname
-echo -e "$Pass\n$Pass\n"|passwd $uname &> /dev/null
+echo -e "$pass\n$pass\n"|passwd $uname &> /dev/null
 echo -e ""
 echo -e "====Trial account info.===="
 echo -e "Username: $uname"
-echo -e "Password: $Pass\n"
+echo -e "Password: $pass\n"
 echo -e "==========================="
 echo -e ""
 echo -e "Type (menu) to back."
@@ -51,20 +51,21 @@ function renew_user() {
 	read -p "Expired (Days): " Date
 
 	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
-	usermod -e `date -d "$Date days" +"%Y-%m-%d"` -s /bin/false -M $uname
+	useradd -e `date -d "$Date days" +"%Y-%m-%d"` -s /bin/false -M $uname
 	exp="$(chage -l $uname | grep "New expiration" | awk -F": " '{print $2}')"
 	echo -e "$Pass\n$Pass\n"|passwd $uname &> /dev/null
+	usermod -e $exp $uname
 	echo -e ""
 	echo -e "======New expiration date for:======"
 	echo -e "Username: $uname "
-	echo -e "-------------------------------"
+	echo -e ""
 	echo -e "Expired Date: $exp"
-	echo -e "==============================="
+	echo -e "===================================="
 	echo -e ""
 	echo -e "Type (menu) to back menu option."
 
 	#echo "New expiration date for $uname: $expdate...";
-	#usermod -e $expdate $uname
+	
 	
 	echo ""
 	echo "Thank you! Please type "menu" to back."
