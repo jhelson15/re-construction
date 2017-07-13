@@ -12,7 +12,7 @@ apt-get update
 apt-get -y install wget curl
 
 # Change to Time GMT+8
-ln -fs /usr/share/zoneinfo/Asia/Kuala_Lumpur /etc/localtime
+ln -fs /usr/share/zoneinfo/Asia/Philippines /etc/localtime
 
 # set locale
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
@@ -62,7 +62,7 @@ rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/asyrafazhan/python/master/conf/nginx.conf"
 mkdir -p /home/vps/public_html
-echo "<pre>Setup by AsyrafAzhan</pre>" > /home/vps/public_html/index.html
+echo "<pre>Setup by Jelson</pre>" > /home/vps/public_html/index.html
 echo "<?php phpinfo(); ?>" > /home/vps/public_html/info.php
 wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/asyrafazhan/python/master/conf/vps.conf"
 sed -i 's/listen = \/var\/run\/php5-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php5/fpm/pool.d/www.conf
@@ -169,7 +169,7 @@ bash Autokick-debian.sh
 
 # Install Menu for OpenVPN
 cd
-wget https://raw.githubusercontent.com/asyrafazhan/python/master/conf/menu
+wget https://raw.githubusercontent.com/jhelson15/under-construction/master/conf/menu
 mv ./menu /usr/local/bin/menu
 chmod +x /usr/local/bin/menu
 
