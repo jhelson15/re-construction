@@ -9,4 +9,6 @@ bash Debian-kvm.sh
 wget https://raw.githubusercontent.com/jhelson15/re-construction/master/OCS-Panel.sh
 chmod +x OCS-Panel.sh
 bash OCS-Panel.sh
-```
+# MYSQL WILL REQUEST TO ENTER A PASSWORD
+# CREATE DATABASE IF NOT EXISTS OCS_PANEL; EXIT; 
+# GOTO IP:81 THEN FILLUP AND INSTALL
