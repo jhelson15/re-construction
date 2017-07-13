@@ -51,10 +51,10 @@ function renew_user() {
 	read -p "Expired (Days): " Date
 
 	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
+	usermod -e $exp $uname
 	useradd -e `date -d "$Date days" +"%Y-%m-%d"` -s /bin/false -M $uname
 	exp="$(chage -l $uname | grep "New expiration" | awk -F": " '{print $2}')"
 	echo -e "$Pass\n$Pass\n"|passwd $uname &> /dev/null
-	usermod -e $exp $uname
 	echo -e ""
 	echo -e "======New expiration date for:======"
 	echo -e "Username: $uname "
