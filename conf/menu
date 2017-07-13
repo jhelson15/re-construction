@@ -1,5 +1,5 @@
 #!/bin/bash
-
+clear
 cd
 
 screenfetch
@@ -92,10 +92,6 @@ do
             read -p "Enter Password for username[$uname]: " pass
             read -p "Enter Date for username[$uname] (YYYY:DD:MM): " expdate
 	    
-	    IP=`dig +short myip.opendns.com @resolver1.opendns.com`
-	    useradd -e `date -d "$expdate days" +"%Y-%m-%d"` -s /bin/false -M $uname
-	    exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
-	    echo -e "$pass\n$pass\n"|passwd $uname &> /dev/null
 	    create_user
 	    break
             ;;
@@ -103,11 +99,7 @@ do
             read -p "Enter username to renew: " uname
             read -p "Enter Date extend for username ($uname): " expdate
 	    
-	    IP=`dig +short myip.opendns.com @resolver1.opendns.com`
-	    useradd -e `date -d "$expdate days" +"%Y-%m-%d"` -s /bin/false -M $uname
-	    exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
-	    echo -e "$pass\n$pass\n"|passwd $uname &> /dev/null
-            renew_user
+	    renew_user
             break
             ;;
         "Delete User")
