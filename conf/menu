@@ -50,7 +50,7 @@ function renew_user() {
 
 	echo -e "====New expiration date for:===="
 	echo -e "Username: $uname"
-	echo -e "Expiration Date: $expdate\n"
+	echo -e "Expiration Date: $expdate"
 	echo -e "================================"
 	echo ""
 	usermod -e $uname $expdate
