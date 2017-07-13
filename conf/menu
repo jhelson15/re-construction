@@ -32,7 +32,7 @@ function generate_trial() {
 IP=`dig +short myip.opendns.com @resolver1.opendns.com`
 
 uname=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
-hari=".02"
+hari="1"
 pass=`</dev/urandom tr -dc a-f0-9 | head -c9`
 
 useradd -e `date -d "$hari days" +"%Y-%m-%d"` -s /bin/false -M $uname
