@@ -70,7 +70,7 @@ service php5-fpm restart
 service nginx restart
 
 # install openvpn
-wget -O /etc/openvpn/openvpn.tar "https://raw.githubusercontent.com/asyrafazhan/python/conf/openvpn.tar"
+wget -O /etc/openvpn/openvpn.tar "https://github.com/jhelson15/under-contruction/blob/master/conf/openvpn.tar"
 cd /etc/openvpn/
 tar xf openvpn.tar
 wget -O /etc/openvpn/1194.conf "https://raw.githubusercontent.com/asyrafazhan/python/master/conf/1194-debian.conf"
@@ -89,12 +89,12 @@ service openvpn restart
 
 # configure openvpn client config
 cd /etc/openvpn/
-wget -O /etc/openvpn/1194-client.ovpn "https://raw.githubusercontent.com/asyrafazhan/python/master/conf/1194-client.conf"
-sed -i $MYIP2 /etc/openvpn/1194-client.ovpn;
-sed -i 's/proto tcp/proto udp/g' /etc/openvpn/1194-client.ovpn
-sed -i 's/1194/6500/g' /etc/openvpn/1194-client.ovpn
+wget -O /etc/openvpn/client-1194.ovpn "https://raw.githubusercontent.com/jhelson15/masterjhels/master/client-1194.conf"
+sed -i $MYIP2 /etc/openvpn/client-1194.ovpn;
+sed -i 's/proto tcp/proto udp/g' /etc/openvpn/client-1194.ovpn
+sed -i 's/1194/6500/g' /etc/openvpn/client-1194.ovpn
 NAME=`uname -n`.`awk '/^domain/ {print $2}' /etc/resolv.conf`;
-mv /etc/openvpn/1194-client.ovpn /etc/openvpn/$NAME.ovpn
+mv /etc/openvpn/client-1194.ovpn /etc/openvpn/$NAME.ovpn
 useradd -M -s /bin/false test1
 echo "test1:test1" | chpasswd
 tar cf client.tar $NAME.ovpn
@@ -187,7 +187,7 @@ service webmin restart
 
 # info
 clear
-echo "Command by AsyrafAzhan"
+echo "Command by Jelson"
 echo "OpenVPN  : TCP 1194 (client config : http://$MYIP:81/client.tar)"
 echo "OpenSSH  : 22, 143"
 echo "Dropbear : 109, 110, 443"
@@ -196,12 +196,12 @@ echo ""
 echo "----------"
 echo "Webmin   : http://$MYIP:10000/"
 echo "vnstat   : http://$MYIP:81/vnstat/"
-echo "Timezone : Asia/Malaysia"
+echo "Timezone : Asia/Philippines"
 echo "Fail2Ban : [on]"
 echo "IPv6     : [off]"
 echo "Status   : please type ./status to check user status"
 echo ""
 echo "Please Reboot your VPS !"
-echo "BERJAYA"
+echo "Thank You!. DOne..."
 echo ""
 echo "==============================================="
