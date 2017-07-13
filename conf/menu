@@ -1,21 +1,37 @@
 #!/bin/bash
 
+cd
+
+screenfetch
+                    	        _\|/_
+                       		(o o)
+echo "---------------------- o00-{_}-00o ---------------------"
+
+echo "----------- Welcom Jelson Barrozo Autoscript -------------"
+
+
 function create_user() {
 	useradd -M $uname
 	echo "$uname:$pass" | chpasswd
 	usermod -e $expdate $uname
 
 	echo ""
-	echo "Terbaik Bos! Berjaya"
+	echo "Thank you! Please type "menu" to back menu list."
 }
 
 function renew_user() {
 	echo "New expiration date for $uname: $expdate...";
 	usermod -e $expdate $uname
+	
+	echo ""
+	echo "Thank you! Please type "menu" to back menu list."
 }
 
 function delete_user(){
 	userdel $uname
+	
+	echo ""
+	echo "Thank you! Please type "menu" to back menu list."
 }
 
 function expired_users(){
@@ -32,6 +48,9 @@ function expired_users(){
 		fi
 	done
 	rm /tmp/expirelist.txt
+	
+	echo ""
+	echo "Thank you! Please type "menu" to back menu list."
 }
 
 function not_expired_users(){
@@ -48,12 +67,18 @@ function not_expired_users(){
         fi
     done
 	rm /tmp/expirelist.txt
+	
+	echo ""
+	echo "Thank you! Please type "menu" to back menu list."
 }
 
 function used_data(){
 	myip=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | head -n1`
 	myint=`ifconfig | grep -B1 "inet addr:$myip" | head -n1 | awk '{print $1}'`
 	ifconfig $myint | grep "RX bytes" | sed -e 's/ *RX [a-z:0-9]*/Received: /g' | sed -e 's/TX [a-z:0-9]*/\nTransfered: /g'
+	
+	echo ""
+	echo "Thank you! Please type "menu" to back menu list."
 }
 
 clear
@@ -64,14 +89,24 @@ do
     case $opt in
         "Add User")
             read -p "Enter username: " uname
-            read -p "Enter password: " pass
-            read -p "Enter expiry date (YYYY-MM-DD): " expdate
+            read -p "Enter Password for username ($uname): " pass
+            read -p "Day active for username ($uname): " days
+	    
+	    IP=`dig +short myip.opendns.com @resolver1.opendns.com`
+	    useradd -e `date -d "$expdate days" +"%Y-%m-%d"` -s /bin/false -M $uname
+	    exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
+	    echo -e "$pass\n$pass\n"|passwd $uname &> /dev/null
 	    create_user
 	    break
             ;;
         "Renew User")
             read -p "Enter username to renew: " uname
-            read -p "Enter expiry date (YYYY-MM-DD): " expdate
+            read -p "Day active for username ($uname): " expdate
+	    
+	    IP=`dig +short myip.opendns.com @resolver1.opendns.com`
+	    useradd -e `date -d "$expdate days" +"%Y-%m-%d"` -s /bin/false -M $uname
+	    exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
+	    echo -e "$pass\n$pass\n"|passwd $uname &> /dev/null
             renew_user
             break
             ;;
