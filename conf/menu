@@ -53,7 +53,7 @@ function renew_user() {
 	echo -e "Expiration Date: $expdate"
 	echo -e "================================"
 	echo ""
-	usermod -e $uname $expdate
+	usermod -e $expdate $uname
 	echo "Thank you! Please type "menu" to back."
 }
 
