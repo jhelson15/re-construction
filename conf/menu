@@ -16,7 +16,7 @@ function create_user() {
 	usermod -e $expdate $uname
 
 	echo ""
-	echo "Thank you! Please type "menu" to back menu list."
+	echo "Thank you! Please type "menu" to back."
 }
 
 function renew_user() {
@@ -24,14 +24,14 @@ function renew_user() {
 	usermod -e $expdate $uname
 	
 	echo ""
-	echo "Thank you! Please type "menu" to back menu list."
+	echo "Thank you! Please type "menu" to back."
 }
 
 function delete_user(){
 	userdel $uname
 	
 	echo ""
-	echo "Thank you! Please type "menu" to back menu list."
+	echo "Thank you! Please type "menu" to back."
 }
 
 function expired_users(){
@@ -50,7 +50,7 @@ function expired_users(){
 	rm /tmp/expirelist.txt
 	
 	echo ""
-	echo "Thank you! Please type "menu" to back menu list."
+	echo "Thank you! Please type "menu" to back."
 }
 
 function not_expired_users(){
@@ -66,10 +66,11 @@ function not_expired_users(){
             echo $username
         fi
     done
+    	echo ""
+	echo "Thank you! Please type "menu" to back."
 	rm /tmp/expirelist.txt
 	
-	echo ""
-	echo "Thank you! Please type "menu" to back menu list."
+	
 }
 
 function used_data(){
@@ -78,7 +79,7 @@ function used_data(){
 	ifconfig $myint | grep "RX bytes" | sed -e 's/ *RX [a-z:0-9]*/Received: /g' | sed -e 's/TX [a-z:0-9]*/\nTransfered: /g'
 	
 	echo ""
-	echo "Thank you! Please type "menu" to back menu list."
+	echo "Thank you! Please type "menu" to back."
 }
 
 clear
@@ -90,14 +91,14 @@ do
         "Add User")
             read -p "Enter username: " uname
             read -p "Enter Password for username[$uname]: " pass
-            read -p "Enter Date for username[$uname] (YYYY:DD:MM): " expdate
+            read -p "Enter Date for username[$uname](YYYY:MM:DD): " expdate
 	    
 	    create_user
 	    break
             ;;
         "Renew User")
             read -p "Enter username to renew: " uname
-            read -p "Enter Date extend for username ($uname): " expdate
+            read -p "Enter Date extend for username[$uname](YYYY:MM:DD): " expdate
 	    
 	    renew_user
             break
