@@ -149,8 +149,8 @@ do
 	      break
 	      ;;   
         "Renew User")
-            read -p "Enter username to renew: " uname
-            read -p "Enter Date extend for username[$uname](YYYY:MM:DD): " expdate
+            #read -p "Enter username to renew: " uname
+            #read -p "Enter Date extend for username[$uname](YYYY:MM:DD): " expdate
 	    
 	    renew_user
             break
