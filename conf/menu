@@ -48,11 +48,8 @@ echo -e ""
 }
 function renew_user() {
 
-	echo -e "====New expiration date for:===="
-	echo -e "Username: $uname"
-	echo -e "Expiration Date: $expdate"
-	echo -e "================================"
-	echo ""
+
+	echo "New expiration date for $uname: $expdate...";
 	usermod -e $expdate $uname
 	echo "Thank you! Please type "menu" to back."
 }
@@ -135,11 +132,10 @@ do
 	      generate_trial
 	      break
 	      ;;   
-        "Renew User")
+       "Renew User")
             read -p "Enter username to renew: " uname
-            read -p "Enter Date extend for username[$uname](YYYY:MM:DD): " expdate
-	    
-	    renew_user
+            read -p "Enter expiry date (YYYY-MM-DD): " expdate
+            renew_user
             break
             ;;
         "Delete User")
