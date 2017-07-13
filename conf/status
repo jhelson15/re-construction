@@ -23,5 +23,5 @@ do
         fi
 done < /etc/passwd
 echo "---------------------------------------------"
-echo " ONLINE : $ON     OFFLINE : $OFF     [ AsyrafAzhan ] "
+echo " ONLINE : $ON     OFFLINE : $OFF     [ Mod: jhelson15 ] "
 echo "---------------------------------------------"
