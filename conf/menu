@@ -104,6 +104,7 @@ do
             break
             ;;
         "Delete User")
+	    /root/status
             read -p "Enter username to be removed: " uname
             delete_user
             break
