@@ -15,10 +15,10 @@ function create_user() {
 	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
 	useradd -e `date -d "$Date days" +"%Y-%m-%d"` -s /bin/false -M $uname
 	exp="$(chage -l $uname | grep "Account expires" | awk -F": " '{print $2}')"
-	echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
+	echo -e "$Pass\n$Pass\n"|passwd $uname &> /dev/null
 	echo -e ""
 	echo -e "======Account Information======"
-	echo -e "Username: $Login "
+	echo -e "Username: $uname "
 	echo -e "Password: $Pass"
 	echo -e "-------------------------------"
 	echo -e "Expired Date: $exp"
@@ -52,11 +52,11 @@ function renew_user() {
 
 	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
 	useradd -e `date -d "$Date days" +"%Y-%m-%d"` -s /bin/false -M $uname
-	exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
+	exp="$(chage -l $uname | grep "New expiration" | awk -F": " '{print $2}')"
 	echo -e "$Pass\n$Pass\n"|passwd $uname &> /dev/null
 	echo -e ""
 	echo -e "======New expiration date for:======"
-	echo -e "Username: $Login "
+	echo -e "Username: $uname "
 	echo -e "-------------------------------"
 	echo -e "Expired Date: $exp"
 	echo -e "==============================="
