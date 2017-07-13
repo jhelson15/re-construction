@@ -15,7 +15,24 @@ function create_user() {
 	echo ""
 	echo "Thank you! Please type "menu" to back."
 }
+function generate_trial() {
+IP=`dig +short myip.opendns.com @resolver1.opendns.com`
 
+Login=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
+hari="1"
+Pass=`</dev/urandom tr -dc a-f0-9 | head -c9`
+
+useradd -e `date -d "$hari days" +"%Y-%m-%d"` -s /bin/false -M $Login
+echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
+echo -e ""
+echo -e "====Trial account info.===="
+echo -e "Username: $Login"
+echo -e "Password: $Pass\n"
+echo -e "==========================="
+echo -e ""
+echo -e "Type (menu) to back."
+echo -e ""
+}
 function renew_user() {
 	echo "New expiration date for $uname: $expdate...";
 	usermod -e $expdate $uname
@@ -86,7 +103,7 @@ echo "----------------------------------------------------------"
 echo "----------- Welcom Jelson Barrozo Autoscript -------------"
 echo ""
 PS3='Please enter your choice: '
-options=("Add User" "Renew User" "Delete User" "Current Connected Users" "User List" "Ram Status" "Users Not Expired" "Expired Users" "Used Data By Users" "Quit")
+options=("Add User" "generate_trial" "Renew User" "Delete User" "Current Connected Users" "User List" "Ram Status" "Users Not Expired" "Expired Users" "Used Data By Users" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -98,6 +115,10 @@ do
 	    create_user
 	    break
             ;;
+        "generate_trial")
+	      generate_trial
+	      break
+	      ;;   
         "Renew User")
             read -p "Enter username to renew: " uname
             read -p "Enter Date extend for username[$uname](YYYY:MM:DD): " expdate
