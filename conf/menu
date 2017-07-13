@@ -8,25 +8,38 @@ echo "clear"
 echo "connecting..."
 clear                    	        
 function create_user() {
-	useradd -M $uname
-	echo "$uname:$pass" | chpasswd
-	usermod -e $expdate $uname
+	read -p "Username : " Login
+	read -p "Password : " Pass
+	read -p "Expired (Days): " Date
 
-	echo ""
+	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
+	useradd -e `date -d "$Date days" +"%Y-%m-%d"` -s /bin/false -M $Login
+	exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
+	echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
+	echo -e ""
+	echo -e "======Account Information======"
+	echo -e "Username: $Login "
+	echo -e "Password: $Pass"
+	echo -e "-------------------------------"
+	echo -e "Expired Date: $exp"
+	echo -e "==============================="
+	echo -e "Mod by jhelson15"
+	echo -e "Type (menu) to back menu option."
+	echo -e ""
 	echo "Thank you! Please type "menu" to back."
 }
 function generate_trial() {
 IP=`dig +short myip.opendns.com @resolver1.opendns.com`
 
-Login=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
-hari="1"
+uname=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
+hari=".02"
 Pass=`</dev/urandom tr -dc a-f0-9 | head -c9`
 
 useradd -e `date -d "$hari days" +"%Y-%m-%d"` -s /bin/false -M $Login
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
 echo -e ""
 echo -e "====Trial account info.===="
-echo -e "Username: $Login"
+echo -e "Username: $uname"
 echo -e "Password: $Pass\n"
 echo -e "==========================="
 echo -e ""
@@ -34,8 +47,24 @@ echo -e "Type (menu) to back."
 echo -e ""
 }
 function renew_user() {
-	echo "New expiration date for $uname: $expdate...";
-	usermod -e $expdate $uname
+	read -p "Username : " uname
+	read -p "Expired (Days): " Date
+
+	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
+	useradd -e `date -d "$Date days" +"%Y-%m-%d"` -s /bin/false -M $uname
+	exp="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
+	echo -e "$Pass\n$Pass\n"|passwd $uname &> /dev/null
+	echo -e ""
+	echo -e "======New expiration date for:======"
+	echo -e "Username: $Login "
+	echo -e "-------------------------------"
+	echo -e "Expired Date: $exp"
+	echo -e "==============================="
+	echo -e ""
+	echo -e "Type (menu) to back menu option."
+
+	#echo "New expiration date for $uname: $expdate...";
+	#usermod -e $expdate $uname
 	
 	echo ""
 	echo "Thank you! Please type "menu" to back."
@@ -108,9 +137,9 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Add User")
-            read -p "Enter username: " uname
-            read -p "Enter Password for username[$uname]: " pass
-            read -p "Enter Date for username[$uname](YYYY:MM:DD): " expdate
+            #read -p "Enter username: " uname
+            #read -p "Enter Password for username[$uname]: " pass
+            #read -p "Enter Date for username[$uname](YYYY:MM:DD): " expdate
 	    
 	    create_user
 	    break
