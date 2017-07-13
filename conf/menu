@@ -89,8 +89,8 @@ do
     case $opt in
         "Add User")
             read -p "Enter username: " uname
-            read -p "Enter Password for username ($uname): " pass
-            read -p "Day active for username ($uname): " days
+            read -p "Enter Password for username[$uname]: " pass
+            read -p "Enter Date for username[$uname] (YYYY:DD:MM): " expdate
 	    
 	    IP=`dig +short myip.opendns.com @resolver1.opendns.com`
 	    useradd -e `date -d "$expdate days" +"%Y-%m-%d"` -s /bin/false -M $uname
@@ -101,7 +101,7 @@ do
             ;;
         "Renew User")
             read -p "Enter username to renew: " uname
-            read -p "Day active for username ($uname): " expdate
+            read -p "Enter Date extend for username ($uname): " expdate
 	    
 	    IP=`dig +short myip.opendns.com @resolver1.opendns.com`
 	    useradd -e `date -d "$expdate days" +"%Y-%m-%d"` -s /bin/false -M $uname
