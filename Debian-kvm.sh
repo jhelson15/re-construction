@@ -148,10 +148,6 @@ sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
 service webmin restart
 service vnstat restart
 
-# User Status
-cd
-wget https://raw.githubusercontent.com/jhelson15/re-construction/master/conf/status
-chmod +x status
 
 # Install Dos Deflate
 apt-get -y install dnsutils dsniff
@@ -171,6 +167,20 @@ cd
 wget https://raw.githubusercontent.com/jhelson15/re-construction/master/conf/menu
 mv ./menu /usr/local/bin/menu
 chmod +x /usr/local/bin/menu
+
+wget -O refresh "https://raw.githubusercontent.com/jhelson15/masterjhels/master/refresh.sh"
+wget -O speedtest "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/speedtest_cli.py"
+wget -O info "https://raw.githubusercontent.com/jhelson15/masterjhels/master/info.sh"
+wget -O about "https://raw.githubusercontent.com/jhelson15/masterjhels/master/about.sh"
+chmod +x refresh
+chmod +x speedtest
+chmod +x info
+chmod +x about
+
+# User Status
+cd
+wget https://raw.githubusercontent.com/jhelson15/re-construction/master/conf/status
+chmod +x status
 
 # Restart Service
 chown -R www-data:www-data /home/vps/public_html
