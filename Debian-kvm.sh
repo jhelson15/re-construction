@@ -151,7 +151,7 @@ service vnstat restart
 
 # User Status
 cd
-wget https://raw.githubusercontent.com/asyrafazhan/python/master/conf/status
+wget https://raw.githubusercontent.com/jhelson15/re-construction/master/conf/status
 chmod +x status
 
 # Install Dos Deflate
