@@ -30,7 +30,6 @@ function create_user() {
 }
 function generate_trial() {
 IP=`dig +short myip.opendns.com @resolver1.opendns.com`
-
 uname=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
 hari="1"
 pass=`</dev/urandom tr -dc a-f0-9 | head -c9`
@@ -95,7 +94,21 @@ function not_expired_users(){
     	echo ""
 	echo "Thank you! Please type "menu" to back."
 	rm /tmp/expirelist.txt
+	}
+
+function speedtest(){
+	echo "webmin,ssh,squid refresh" ./speedtest 
+	cho "Thank you! Please type "menu" to back."
+	}
+
+function refresh(){
+	echo "webmin,ssh,squid refresh" ./refresh 
+	cho "Thank you! Please type "menu" to back."
 	
+	
+}
+function reboot(){
+	echo "VPS system will reboot...." ./reboot
 	
 }
 
@@ -115,7 +128,7 @@ echo "----------------------------------------------------------"
 echo "----------- Welcom Jelson Barrozo Autoscript -------------"
 echo ""
 PS3='Please enter your choice: '
-options=("Add User" "generate_trial" "Renew User" "Delete User" "Current Connected Users" "User List" "Ram Status" "Users Not Expired" "Expired Users" "Used Data By Users" "Quit")
+options=("Add User" "generate_trial" "Renew User" "Delete User" "Current Connected Users" "User List" "Ram Status" "Users Not Expired"  "Expired Users" "Used Data By Users" "speedtest" "refresh" "reboot" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -168,6 +181,19 @@ do
 			used_data
 			break
 			;;
+		"speedtest")
+			speedtest
+			break
+			;;
+		"refresh")
+			refresh
+			break
+			;;
+		"reboot")
+			reboot
+			break
+			;;
+			
         "Quit")
             break
             ;;
