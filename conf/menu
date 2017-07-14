@@ -166,19 +166,7 @@ do
 			used_data
 			break
 			;;
-		"speedtest")
-			speedtest
-			break
-			;;
-		"refresh")
-			refresh
-			break
-			;;
-		"reboot")
-			reboot
-			break
-			;;
-			
+					
         "Quit")
             break
             ;;
