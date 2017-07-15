@@ -136,14 +136,14 @@ wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/asyrafazhan/py
 sed -i $MYIP2 /etc/squid3/squid.conf;
 service squid3 restart
 
-# install webmin
 
-wget "http://prdownloads.sourceforge.net/webadmin/webmin_1.850_all.deb"
-dpkg --install webmin_1.850_all.deb;
-rm /root/webmin_1.850_all.deb
-sed -i 's/ssl=1/ssl=0/g' /etc/webmin/miniserv.conf
+# install webmin
+cd
+wget -O webmin-current.deb "http://www.webmin.com/download/deb/webmin-current.deb"
+dpkg -i --force-all webmin-current.deb;
+apt-get -y -f install;
+rm /root/webmin-current.deb
 service webmin restart
-service vnstat restart
 
 
 # Install Dos Deflate
