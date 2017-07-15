@@ -75,8 +75,18 @@ cd /etc/openvpn/
 tar xf openvpn.tar
 wget -O /etc/openvpn/1194.conf "https://raw.githubusercontent.com/rizal180499/Auto-Installer-VPS/master/conf/1194.conf"
 service openvpn restart
+service openvpn restart
 sysctl -w net.ipv4.ip_forward=1
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
+wget -O /etc/iptables.up.rules "https://raw.githubusercontent.com/asyrafazhan/python/master/conf/iptables.up.rules"
+sed -i '$ i\iptables-restore < /etc/iptables.up.rules' /etc/rc.local
+MYIP=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | grep -v '192.168'`;
+MYIP2="s/xxxxxxxxx/$MYIP/g";
+sed -i 's/port 1194/port 6500/g' /etc/openvpn/1194.conf
+sed -i 's/proto tcp/proto udp/g' /etc/openvpn/1194.conf
+sed -i $MYIP2 /etc/iptables.up.rules;
+iptables-restore < /etc/iptables.up.rules
+service openvpn restart
 iptables -t nat -I POSTROUTING -s 192.168.100.0/24 -o eth0 -j MASQUERADE
 iptables-save > /etc/iptables_yg_baru_dibikin.conf
 wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/nifira123/debian7_32bit/master/iptables"
@@ -132,7 +142,7 @@ service fail2ban restart
 
 # install squid3
 apt-get -y install squid3
-wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/asyrafazhan/python/master/conf/squid.conf"
+wget -O /etc/squid3/squid.conf "https://raw.githubusercontent.com/jhelson15/re-construction/master/conf/squid.conf"
 sed -i $MYIP2 /etc/squid3/squid.conf;
 service squid3 restart
 
