@@ -25,8 +25,6 @@ function create_user() {
 function change_user_pass() {
 	read -p "Enter username: " uname
 	read -p "Enter new password for username[$uname] : " Pass
-	
-	usermod -e $uname $Pass
 	echo -e ""
 	echo -e "======Password has been change======"
 	echo -e "Username: $uname "
@@ -34,6 +32,7 @@ function change_user_pass() {
 	echo -e "==============================="
 	echo -e ""
 	echo -e ""
+	usermod -e $uname $Pass
 	echo "Thank you! Please type "menu" to back."
 }
 function generate_trial() {
