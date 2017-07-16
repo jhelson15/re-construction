@@ -33,7 +33,7 @@ function change_user_pass() {
 	echo -e "======Password has been change======"
 	echo -e "Username: $uname "
 	echo -e "Password: $Pass"
-	echo -e "==============================="
+	echo -e "===================================="
 	echo -e ""
 	echo -e ""
 	
