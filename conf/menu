@@ -30,7 +30,7 @@ function change_user_pass() {
 	echo -e "==============================="
 	echo -e ""
 	echo -e ""
-	usermod -e $uname $Pass
+	usermod -M $uname $Pass
 	echo "Thank you! Please type "menu" to back."
 }
 function generate_trial() {
