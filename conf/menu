@@ -1,9 +1,5 @@
 #!/bin/bash
-echo "connecting..."
 
-echo "clear"
-
-echo "connecting..."
 clear                    	        
 function create_user() {
 	read -p "Enter username: " uname
@@ -140,7 +136,7 @@ do
 	    create_user
 	    break
             ;;
-        "Change Password")
+        "Change password")
             #read -p "Enter username: " uname
             #read -p "Enter Password for username[$uname]: " pass
             #read -p "Enter Date for username[$uname](YYYY:MM:DD): " expdate
