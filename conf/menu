@@ -23,6 +23,8 @@ function create_user() {
 	echo "Thank you! Please type "menu" to back."
 }
 function change_user_pass() {
+	useradd -M $Pass $uname
+	clear
 	echo -e ""
 	echo -e "======Password has been change======"
 	echo -e "Username: $uname "
@@ -30,7 +32,7 @@ function change_user_pass() {
 	echo -e "==============================="
 	echo -e ""
 	echo -e ""
-	usermod -U $Pass $uname
+	
 	echo "Thank you! Please type "menu" to back."
 }
 function generate_trial() {
