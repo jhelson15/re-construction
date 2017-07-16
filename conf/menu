@@ -23,7 +23,10 @@ function create_user() {
 	echo "Thank you! Please type "menu" to back."
 }
 function change_user_pass() {
-	useradd -M $Pass $uname
+	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
+	useradd -e `date -d "$Date days" +"%Y-%m-%d"` -s /bin/false -M $uname
+	exp="$(chage -l $uname | grep "Account expires" | awk -F": " '{print $2}')"
+	echo -e "$Pass\n$Pass\n"|passwd $uname &> /dev/null
 	clear
 	echo -e ""
 	echo -e "======Password has been change======"
