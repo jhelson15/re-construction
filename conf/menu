@@ -26,10 +26,7 @@ function change_user_pass() {
 	read -p "Enter username: " uname
 	read -p "Enter new password for username[$uname] : " Pass
 	
-	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
-	useradd -e `date -d "$Date days" +"%Y-%m-%d"` -s /bin/false -M $uname
-	exp="$(chage -l $uname | grep "Account expires" | awk -F": " '{print $2}')"
-	echo -e "$Pass\n$Pass\n"|passwd $uname &> /dev/null
+	usermod -e $uname $Pass
 	echo -e ""
 	echo -e "======Password has been change======"
 	echo -e "Username: $uname "
