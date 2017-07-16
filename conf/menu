@@ -124,7 +124,7 @@ echo "--------------------------------------------------------------------"
 echo "----------- Welcom Jelson Barrozo Autoscript -----------------------"
 echo ""
 PS3='Please enter your choice: '
-options=("Add User" "Change password" "Generate_trial" "Renew User" "Delete User" "Current Connected Users" "User List" "Ram Status" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
+options=("Add User" "Change password" "Generate_trial" "Renew User" "Delete User" "User List" "Ram Status" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -156,26 +156,21 @@ do
             read -p "Enter username to be removed: " uname
             delete_user
             break
-            ;;
-		"Current Connected Users")
-            who -T | tr -s ' ' | cut -d ' ' -f 1-2 | sort -u
-
-            break
             ;;		
-		"User List")
+	"User List")
             /root/status
             break
             ;;	
-		"Ram Status")
+	"Ram Status")
 		    free -h | grep -v + > /tmp/ramcache
             cat /tmp/ramcache | grep -v "Swap"
             break
             ;;	
-		"Users Not Expired")
+	"Users Not Expired")
 			not_expired_users
 			break
 			;;
-		"Expired Users")
+	"Expired Users")
 			expired_users
 			break
 			;;
