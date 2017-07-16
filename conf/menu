@@ -9,7 +9,7 @@ echo "connecting..."
 clear                    	        
 function create_user() {
 	read -p "Enter username: " uname
-	read -p "Enter Date for username[$uname] : " Pass
+	read -p "Enter Password for username[$uname] : " Pass
 	read -p "Expired (Days): " Date
 
 	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
@@ -25,6 +25,20 @@ function create_user() {
 	echo -e "==============================="
 	echo -e ""
 	echo -e "Type (menu) to back menu option."
+	echo -e ""
+	echo "Thank you! Please type "menu" to back."
+}
+function change_user_pass() {
+	read -p "Enter username: " uname
+	read -p "Enter new password for username[$uname] : " Pass
+	
+	usermod -e $uname $Pass
+	echo -e ""
+	echo -e "======Password has been change======"
+	echo -e "Username: $uname "
+	echo -e "Password: $Pass"
+	echo -e "==============================="
+	echo -e ""
 	echo -e ""
 	echo "Thank you! Please type "menu" to back."
 }
@@ -108,12 +122,12 @@ function used_data(){
 
 clear
 screenfetch                       		
-echo "----------------------------------------------------------"
+echo "--------------------------------------------------------------------"
 
-echo "----------- Welcom Jelson Barrozo Autoscript -------------"
+echo "----------- Welcom Jelson Barrozo Autoscript -----------------------"
 echo ""
 PS3='Please enter your choice: '
-options=("Add User" "generate_trial" "Renew User" "Delete User" "Current Connected Users" "User List" "Ram Status" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
+options=("Add User" "Change pass" "Generate trial" "Renew User" "Delete User" "Current Connected Users" "User List" "Ram Status" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -123,6 +137,14 @@ do
             #read -p "Enter Date for username[$uname](YYYY:MM:DD): " expdate
 	    
 	    create_user
+	    break
+            ;;
+        "Change Password")
+            #read -p "Enter username: " uname
+            #read -p "Enter Password for username[$uname]: " pass
+            #read -p "Enter Date for username[$uname](YYYY:MM:DD): " expdate
+	    
+	    change_user_pass
 	    break
             ;;
         "generate_trial")
