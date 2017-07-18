@@ -154,6 +154,7 @@ service squid3 restart
  apt-get -y -f install;
  rm /root/webmin-current.deb
  service webmin restart
+ service vnstat restart
 #cd /root
 #wget http://www.webmin.com/jcameron-key.asc
 #apt-key add jcameron-key.asc
