@@ -148,17 +148,17 @@ service squid3 restart
 
 
 # install webmin
-## cd
-## wget -O webmin-current.deb "http://www.webmin.com/download/deb/webmin-current.deb"
-## dpkg -i --force-all webmin-current.deb;
-## apt-get -y -f install;
-## rm /root/webmin-current.deb
-## service webmin restart
-cd /root
-wget http://www.webmin.com/jcameron-key.asc
-apt-key add jcameron-key.asc
-echo "deb http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list
-echo "deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib" >> /etc/apt/sources.list
+ cd
+ wget -O webmin-current.deb "http://www.webmin.com/download/deb/webmin-current.deb"
+ dpkg -i --force-all webmin-current.deb;
+ apt-get -y -f install;
+ rm /root/webmin-current.deb
+ service webmin restart
+#cd /root
+#wget http://www.webmin.com/jcameron-key.asc
+#apt-key add jcameron-key.asc
+#echo "deb http://download.webmin.com/download/repository sarge contrib" >> /etc/apt/sources.list
+#echo "deb http://webmin.mirror.somersettechsolutions.co.uk/repository sarge contrib" >> /etc/apt/sources.list
 apt-get update
 apt-get -y install webmin
 
