@@ -183,11 +183,9 @@ chmod +x /usr/local/bin/menu
 
 wget -O refresh "https://raw.githubusercontent.com/jhelson15/masterjhels/master/refresh.sh"
 wget -O speedtest "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/speedtest_cli.py"
-wget -O info "https://raw.githubusercontent.com/jhelson15/masterjhels/master/info.sh"
 wget -O about "https://raw.githubusercontent.com/jhelson15/masterjhels/master/about.sh"
 chmod +x refresh
 chmod +x speedtest
-chmod +x info
 chmod +x about
 
 # User Status
