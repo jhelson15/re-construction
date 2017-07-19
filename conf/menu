@@ -23,8 +23,10 @@ function create_user() {
 	echo "Thank you! Please type "menu" to back."
 }
 function change_user_pass() {
-	  read -p "Enter username: " uname
-	  read -p "Enter new password for username[$uname] : " Pass
+	
+	/root/status
+	read -p "Enter username: " uname
+	read -p "Enter new password for username[$uname] : " Pass
 	    	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
 	useradd -e `date -d "$Date days" +"%Y-%m-%d"` -s /bin/false -M $uname
 	exp="$(chage -l $uname | grep "Account expires" | awk -F": " '{print $2}')"
@@ -37,8 +39,23 @@ function change_user_pass() {
 	echo -e ""
 	echo -e ""
 	
-	echo "Thank you! Please type "menu" to back."
-}
+	echo -e "Thank you! Please type "menu" to back."
+	}
+
+function lock_account() {
+	
+	echo -e "$uname account has been lock"
+	usermod -L $uname
+	echo -e "Thank you! Please type "menu" to back."
+	}
+
+function unlock_account() {
+	
+	echo -e "$uname account has been lock"
+	usermod -L $uname
+	echo - "Thank you! Please type "menu" to back."
+	}
+	
 function generate_trial() {
 #IP=`dig +short myip.opendns.com @resolver1.opendns.com`
 uname=trial`</dev/urandom tr -dc X-Z0-9 | head -c4`
@@ -124,7 +141,7 @@ echo "--------------------------------------------------------------------"
 echo "----------- Welcom Jelson Barrozo Autoscript -----------------------"
 echo ""
 PS3='Please enter your choice: '
-options=("Add User" "Change password" "Generate_trial" "Renew User" "Delete User" "User List" "Ram Status" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
+options=("Add User" "Change password" "lock account" "unlock account" "Generate_trial" "Renew User" "Delete User" "User List" "Ram Status" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -137,8 +154,20 @@ do
 	    break
             ;;
         "Change password")
-          
+             /root/status
 	    change_user_pass
+	    break
+            ;;
+	"lock account")
+	    /root/status
+	    read -p "What username you want Lock ?: " uname
+	    lock_account
+	    break
+            ;;
+	"unlock account")
+	    /root/status
+	    read -p "What username you want unLock ?: " uname
+            unlock_account
 	    break
             ;;
         "Generate_trial")
