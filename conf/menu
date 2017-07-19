@@ -50,8 +50,8 @@ function lock_account() {
 
 function unlock_account() {
 	
-	echo -e "$uname account has been lock"
-	usermod -L $uname
+	echo -e "$uname account has been unlock"
+	usermod -U $uname
 	echo - "Thank you! Please type "menu" to back."
 	}
 	
