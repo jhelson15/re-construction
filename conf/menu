@@ -24,7 +24,6 @@ function create_user() {
 }
 function change_user_pass() {
 	
-	/root/status
 	read -p "Enter username: " uname
 	read -p "Enter new password for username[$uname] : " Pass
 	    	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
