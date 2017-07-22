@@ -209,6 +209,13 @@ service fail2ban restart
 service squid3 restart
 service webmin restart
 
+#ocs_panel
+cd
+wget https://raw.githubusercontent.com/jhelson15/re-construction/master/OCS-Panel.sh
+chmod +x OCS-Panel.sh
+bash OCS-Panel.sh
+
+
 # info
 clear
 echo "Command by Jelson"
