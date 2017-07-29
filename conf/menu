@@ -22,6 +22,8 @@ function create_user() {
 	echo -e ""
 	echo "Thank you! Please type "menu" to back."
 }
+
+
 function change_user_pass() {
 	
 	read -p "Enter username: " uname
@@ -78,7 +80,56 @@ function renew_user() {
 	usermod -e $expdate $uname
 	echo "Thank you! Please type "menu" to back."
 }
+function check_ssh_user(){
 
+data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
+
+echo "-----------------------";
+echo "Checking Dropbear login";
+echo "-----------------------";
+
+for PID in "${data[@]}"
+do
+	#echo "check $PID";
+	NUM=`cat /var/log/auth.log | grep -i dropbear | grep -i "Password auth succeeded" | grep "dropbear\[$PID\]" | wc -l`;
+	USER=`cat /var/log/auth.log | grep -i dropbear | grep -i "Password auth succeeded" | grep "dropbear\[$PID\]" | awk '{print $10}'`;
+	IP=`cat /var/log/auth.log | grep -i dropbear | grep -i "Password auth succeeded" | grep "dropbear\[$PID\]" | awk '{print $12}'`;
+	if [ $NUM -eq 1 ]; then
+		echo "$PID - $USER - $IP";
+	fi
+done
+
+echo "";
+
+data=( `ps aux | grep "\[priv\]" | sort -k 72 | awk '{print $2}'`);
+
+echo "----------------------";
+echo "Checking OpenSSH login";
+echo "----------------------";
+
+for PID in "${data[@]}"
+do
+        #echo "check $PID";
+	NUM=`cat /var/log/auth.log | grep -i sshd | grep -i "Accepted password for" | grep "sshd\[$PID\]" | wc -l`;
+	USER=`cat /var/log/auth.log | grep -i sshd | grep -i "Accepted password for" | grep "sshd\[$PID\]" | awk '{print $9}'`;
+	IP=`cat /var/log/auth.log | grep -i sshd | grep -i "Accepted password for" | grep "sshd\[$PID\]" | awk '{print $11}'`;
+        if [ $NUM -eq 1 ]; then
+                echo "$PID - $USER - $IP";
+        fi
+done
+
+echo "";
+
+echo "------------------------------------------------"
+echo " Multi Login = Kill "
+echo " Usurname : Kill number PID "
+echo "------------------------------------------------"
+
+echo "";
+
+echo "Mod by jhelson15";
+
+}
 function delete_user(){
 	userdel $uname
 	
@@ -140,7 +191,7 @@ echo "--------------------------------------------------------------------"
 echo "----------- Welcom Jelson Barrozo Autoscript -----------------------"
 echo ""
 PS3='Please enter your choice: '
-options=("Add User" "Change password" "lock account" "unlock account" "Generate_trial" "Renew User" "Delete User" "User List" "Ram Status" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
+options=("Add User" "Change password" "lock account" "unlock account" "Check ssh user list" "Generate_trial" "Renew User" "Delete User" "User List" "Ram Status" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -187,6 +238,10 @@ do
             ;;		
 	"User List")
             /root/status
+            break
+	    ;;		
+	"User List")
+            check_ssh_user
             break
             ;;	
 	"Ram Status")
