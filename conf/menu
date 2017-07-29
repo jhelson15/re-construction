@@ -191,7 +191,7 @@ echo "--------------------------------------------------------------------"
 echo "----------- Welcom Jelson Barrozo Autoscript -----------------------"
 echo ""
 PS3='Please enter your choice: '
-options=("Add User" "Change password" "lock account" "unlock account" "Check ssh user list" "Generate_trial" "Renew User" "Delete User" "User List" "Ram Status" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
+options=("Add User" "Change password" "lock account" "unlock account" "Check ssh user list" "Generate_trial" "Renew User" "Delete User" "User List" "Ram Status" "Speedtest" "Refresh Squid" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -253,7 +253,15 @@ do
 			not_expired_users
 			break
 			;;
-	"Expired Users")
+	"Speedtest")
+			./speedtest
+			break
+			;;
+	"Refresh Squid")
+			./refresh
+			break
+			;;
+	 "Expired Users")
 			expired_users
 			break
 			;;
