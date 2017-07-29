@@ -241,7 +241,7 @@ do
             break
 	    ;;		
 	"User List")
-            check_ssh_user
+            ./check-user
             break
             ;;	
 	"Ram Status")
