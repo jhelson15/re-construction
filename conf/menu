@@ -240,7 +240,7 @@ do
             /root/status
             break
 	    ;;		
-	"User List")
+	"Check ssh user list")
             ./check-user
             break
             ;;	
