@@ -180,13 +180,13 @@ wget https://raw.githubusercontent.com/asyrafazhan/python/master/Autokick-debian
 bash Autokick-debian.sh
 
 # Install Menu for OpenVPN
-#cd
-#wget https://raw.githubusercontent.com/jhelson15/re-construction/master/conf/menu
-#mv ./menu /usr/local/bin/menu
-#chmod +x /usr/local/bin/menu
-# download script
 cd
-wget https://github.com/rotipisju/MASTER/raw/master/repo/install-premiumscript.sh -O - -o /dev/null|sh
+wget https://raw.githubusercontent.com/jhelson15/re-construction/master/conf/menu
+mv ./menu /usr/local/bin/menu
+chmod +x /usr/local/bin/menu
+#download script
+#cd
+#wget https://github.com/rotipisju/MASTER/raw/master/repo/install-premiumscript.sh -O - -o /dev/null|sh
 
 
 wget -O refresh "https://raw.githubusercontent.com/jhelson15/masterjhels/master/refresh.sh"
@@ -214,10 +214,10 @@ service squid3 restart
 service webmin restart
 
 #ocs_panel
-#cd
-#wget https://raw.githubusercontent.com/jhelson15/re-construction/master/OCS-Panel.sh
-#chmod +x OCS-Panel.sh
-#bash OCS-Panel.sh
+cd
+wget https://raw.githubusercontent.com/jhelson15/re-construction/master/OCS-Panel.sh
+chmod +x OCS-Panel.sh
+bash OCS-Panel.sh
 
 
 # info
