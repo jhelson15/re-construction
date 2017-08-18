@@ -179,22 +179,22 @@ cd
 wget https://raw.githubusercontent.com/asyrafazhan/python/master/Autokick-debian.sh
 bash Autokick-debian.sh
 
-# Install Menu for OpenVPN
-cd
-wget https://raw.githubusercontent.com/jhelson15/re-construction/master/conf/menu
-mv ./menu /usr/local/bin/menu
-chmod +x /usr/local/bin/menu
+#Install Menu for OpenVPN
+#cd
+#wget https://raw.githubusercontent.com/jhelson15/re-construction/master/conf/menu
+#mv ./menu /usr/local/bin/menu
+#chmod +x /usr/local/bin/menu
 #download script
 #cd
 #wget https://github.com/rotipisju/MASTER/raw/master/repo/install-premiumscript.sh -O - -o /dev/null|sh
 
 
-wget -O refresh "https://raw.githubusercontent.com/jhelson15/masterjhels/master/refresh.sh"
-wget -O speedtest "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/speedtest_cli.py"
-wget -O about "https://raw.githubusercontent.com/jhelson15/masterjhels/master/about.sh"
-chmod +x refresh
-chmod +x speedtest
-chmod +x about
+#wget -O refresh "https://raw.githubusercontent.com/jhelson15/masterjhels/master/refresh.sh"
+#wget -O speedtest "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/speedtest_cli.py"
+#wget -O about "https://raw.githubusercontent.com/jhelson15/masterjhels/master/about.sh"
+#chmod +x refresh
+#chmod +x speedtest
+#chmod +x about
 
 # User Status
 cd
@@ -230,7 +230,7 @@ echo "Squid3   : 8080 (limit to IP SSH)"
 echo ""
 echo "----------"
 echo "Webmin   : http://$MYIP:10000/"
-echo "vnstat   : http://$MYIP:81/vnstat/"
+echo "vnstat   : http://$MYIP:80/vnstat/"
 echo "Timezone : Asia/Philippines"
 echo "Fail2Ban : [on]"
 echo "IPv6     : [off]"
