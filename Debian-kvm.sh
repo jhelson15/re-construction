@@ -180,21 +180,21 @@ wget https://raw.githubusercontent.com/asyrafazhan/python/master/Autokick-debian
 bash Autokick-debian.sh
 
 #Install Menu for OpenVPN
-#cd
-#wget https://raw.githubusercontent.com/jhelson15/re-construction/master/conf/menu
-#mv ./menu /usr/local/bin/menu
-#chmod +x /usr/local/bin/menu
-#download script
+cd
+wget https://raw.githubusercontent.com/jhelson15/re-construction/master/conf/menu
+mv ./menu /usr/local/bin/menu
+chmod +x /usr/local/bin/menu
+download script
 #cd
 #wget https://github.com/rotipisju/MASTER/raw/master/repo/install-premiumscript.sh -O - -o /dev/null|sh
 
 
-#wget -O refresh "https://raw.githubusercontent.com/jhelson15/masterjhels/master/refresh.sh"
-#wget -O speedtest "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/speedtest_cli.py"
-#wget -O about "https://raw.githubusercontent.com/jhelson15/masterjhels/master/about.sh"
-#chmod +x refresh
-#chmod +x speedtest
-#chmod +x about
+wget -O refresh "https://raw.githubusercontent.com/jhelson15/masterjhels/master/refresh.sh"
+wget -O speedtest "https://raw.githubusercontent.com/ForNesiaFreak/FNS_Debian7/fornesia.com/null/speedtest_cli.py"
+wget -O about "https://raw.githubusercontent.com/jhelson15/masterjhels/master/about.sh"
+chmod +x refresh
+chmod +x speedtest
+chmod +x about
 
 # User Status
 cd
@@ -223,7 +223,7 @@ bash OCS-Panel.sh
 # info
 clear
 echo "Command by Jelson"
-echo "OpenVPN  : TCP 1194 (client config : http://$MYIP:81/client.tar)"
+echo "OpenVPN  : TCP 1194 (client config : http://$MYIP:80/client.tar)"
 echo "OpenSSH  : 22, 143"
 echo "Dropbear : 109, 110, 443"
 echo "Squid3   : 8080 (limit to IP SSH)"
