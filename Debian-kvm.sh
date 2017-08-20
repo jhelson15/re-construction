@@ -89,7 +89,7 @@ iptables-restore < /etc/iptables.up.rules
 service openvpn restart
 iptables -t nat -I POSTROUTING -s 192.168.100.0/24 -o eth0 -j MASQUERADE
 iptables-save > /etc/iptables_yg_baru_dibikin.conf
-wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/nifira123/debian7_32bit/master/iptables"
+wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/jhelson15/masterjhels/master/iptables"
 chmod +x /etc/network/if-up.d/iptables
 service openvpn restart
 
