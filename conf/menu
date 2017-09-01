@@ -219,7 +219,7 @@ options=("Add OVPN account"
 	 "Shadowsock How to?"	
 	 "Add SS account" 
 	 "Restart SS" 
-	 "Change password" 
+	 "Change password for OVPN" 
 	 "lock account" 
 	 "unlock account" 
 	 "Check ssh user list" 
@@ -304,7 +304,7 @@ echo "Thank you! Please type "menu" to back."
 	    restart_ss
 	    break
             ;;
-        "Change password")
+        "Change password for OVPN")
              /root/status
 	    change_user_pass
 	    break
