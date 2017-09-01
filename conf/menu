@@ -292,7 +292,7 @@ echo -e ""
 echo "Thank you! Please type "menu" to back."
 	    break
             ;;
-	 "Add Shadowsock account")
+	 "Add Shadowsocks account")
             create_ss
 	    break
             ;;
