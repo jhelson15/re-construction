@@ -22,6 +22,10 @@ echo -e "Mod by jhelson15"
 echo -e "Type (menu) to back menu option."
 echo -e ""
 }
+function create_ss() {
+
+	nano /etcshadowsocks.json
+	}
 
 
 function change_user_pass() {
@@ -191,16 +195,24 @@ echo "--------------------------------------------------------------------"
 echo "----------- Welcom Jelson Barrozo Autoscript -----------------------"
 echo ""
 PS3='Please enter your choice: '
-options=("Add User" "Change password" "lock account" "unlock account" "Check ssh user list" "Generate_trial" "Renew User" "Delete User" "User List" "Ram Status" "Speedtest" "Refresh Squid" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
+options=("Add User OVPN" "Add SS account" "Change password" "lock account" "unlock account" "Check ssh user list" "Generate_trial" "Renew User" "Delete User" "User List" "Ram Status" "Speedtest" "Refresh Squid" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "Add User")
+        "Add User OVPN")
             #read -p "Enter username: " uname
             #read -p "Enter Password for username[$uname]: " pass
             #read -p "Enter Date for username[$uname](YYYY:MM:DD): " expdate
 	    
 	    create_user
+	    break
+            ;;
+	 "Add SS account")
+            #read -p "Enter username: " uname
+            #read -p "Enter Password for username[$uname]: " pass
+            #read -p "Enter Date for username[$uname](YYYY:MM:DD): " expdate
+	    
+	    create_ss
 	    break
             ;;
         "Change password")
