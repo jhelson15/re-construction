@@ -217,17 +217,17 @@ echo "[Menu]"
 PS3='Please enter number your choice [1-19]: '
 options=("Add OVPN account" 
 	 "Shadowsock How to?"	
-	 "Add SS account" 
-	 "Restart SS configuration" 
+	 "Add Shadowsocks account" 
+	 "Restart Shadowsocks configuration" 
 	 "Change password for OVPN" 
-	 "lock account" 
-	 "unlock account" 
-	 "Check ssh user list" 
-	 "Generate_trial" 
-	 "Renew User" 
-	 "Delete User" 
-	 "User List" 
-  	 "Ram Status" 
+	 "lock account for OVPN" 
+	 "unlock account for OVPN" 
+	 "Check ssh user list for OVPN" 
+	 "Generate_trial for OVPN" 
+	 "Renew User for OVPN" 
+	 "Delete User for OVPN" 
+	 "User List for OVPN" 
+  	 "Ram Status for OVPN" 
 	 "Speedtest" 
 	 "Refresh Squid" 
 	 "Users Not Expired"  
@@ -292,15 +292,11 @@ echo -e ""
 echo "Thank you! Please type "menu" to back."
 	    break
             ;;
-	 "Add SS account")
-            #read -p "Enter username: " uname
-            #read -p "Enter Password for username[$uname]: " pass
-            #read -p "Enter Date for username[$uname](YYYY:MM:DD): " expdate
-	    
-	    create_ss
+	 "Add Shadowsock account")
+            create_ss
 	    break
             ;;
-	   "Restart SS configuration")
+	   "Restart Shadowsocks configuration")
 	    restart_ss
 	    break
             ;;
@@ -309,48 +305,48 @@ echo "Thank you! Please type "menu" to back."
 	    change_user_pass
 	    break
             ;;
-	"lock account")
+	"lock account for OVPN")
 	    /root/status
 	    read -p "What username you want Lock ?: " uname
 	    lock_account
 	    break
             ;;
-	"unlock account")
+	"unlock account for OVPN")
 	    /root/status
 	    read -p "What username you want unLock ?: " uname
             unlock_account
 	    break
             ;;
-        "Generate_trial")
+        "Generate_trial for OVPN")
 	      generate_trial
 	      break
 	      ;;   
-       "Renew User")
+       "Renew User for OVPN")
             read -p "Enter username to renew: " uname
             read -p "Enter expiry date (YYYY-MM-DD): " expdate
             renew_user
             break
             ;;
-        "Delete User")
+        "Delete User for OVPN")
 	    /root/status
             read -p "Enter username to be removed: " uname
             delete_user
             break
             ;;		
-	"User List")
+	"User List for OVPN")
             /root/status
             break
 	    ;;		
-	"Check ssh user list")
+	"Check ssh user list for OVPN")
            check_ssh_user
             break
             ;;	
-	"Ram Status")
+	"Ram Status for OVPN")
 		    free -h | grep -v + > /tmp/ramcache
             cat /tmp/ramcache | grep -v "Swap"
             break
             ;;	
-	"Users Not Expired")
+	"Users Not Expired for OVPN")
 			not_expired_users
 			break
 			;;
