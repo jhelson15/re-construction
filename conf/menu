@@ -247,6 +247,7 @@ do
             ;;
 	 "Shadowsock How to?")
               echo -e "Do not delete any text just edit password"
+
 echo -e ""
 echo -e "ITO ANG MGA IBIBIGAY MO SA CLIENT MO."
 echo -e "[IP]                   [PASS]            [PORT]         [ENCRYPTION MODE]"
@@ -259,6 +260,7 @@ echo -e ""
 echo -e "3) THEN GAWIN MO YUNG COMMAND "1" PARA MA-SAVE ANG GINAWA MO."
 echo -e ""
 echo -e "4) PARA MAKITA MO YUNG ILALIM PRESS MO LANG ARROW KEY TO MOVE UP-DOWN-LEFT-RIGHT"
+echo -e ""
 echo -e "5) YANG KULAY YELLOW GREEN ANG ARROW MO PARA MAKA PAG TYPE KA AT MA EDIT MO YUNG MGA TEXT."
 echo -e ""
 echo -e "6) PRESS DELETE TO REMOVE TEXT TAPAT MO YUNG ARROW KEY DOON SA TEXT NA EDIT MO."
@@ -269,6 +271,10 @@ echo -e "8) PAG KA EXIT TYPE KA ULIT menu THEN PRESS 3 TO RESTART AND SHADOWSOCK
 echo -e ""
 echo -e "9) SA EXPIRATION MANUAL MO LISTA SA EXCEL OR NOTEPAD HINDI TO AUTOMATIC NA MERON EXPIRATION."
 
+echo -e ""
+echo -e "shadowsocksjson folder COMMAND"
+echo -e  "MOVE ARROW KEY TO EDIT TEXT'S [UP-DOWN-LEFT-RIGHT]"
+echo -e "1) Command to exit [ctrl+x] then press "Y" end hit enter"
 echo -e ""
 echo -e "To edit create Password of port in shadowsocks choose "2" at menu option." 
 echo -e ""
