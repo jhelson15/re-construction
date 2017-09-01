@@ -255,7 +255,7 @@ echo "Connecting to..."
 sleep 0.5
 echo "Shadowsocks GUIDElines..."
 sleep 0.5
-echo -e "SHADOWSOCKS HOW TO?"
+echo -e "SHADOWSOCKS ACCOUNT HOW TO?"
 echo -e ""
                 echo -e "Do not delete any text just edit password"
 
@@ -281,6 +281,8 @@ echo -e ""
 echo -e "8) PAG KA EXIT TYPE KA ULIT menu THEN PRESS 4 TO RESTART AND SHADOWSOCKS ACCOUNT WILL START CORRECTLY."
 echo -e ""
 echo -e "9) SA EXPIRATION MANUAL MO LISTA SA EXCEL OR NOTEPAD HINDI TO AUTOMATIC NA MERON EXPIRATION."
+echo -e ""
+echo -e "10)PAG EXPIRED NA ACCOUNT NG SHADOWSOCK CHANGE PASSWORD MO LANG."
 
 echo -e ""
 echo -e "*************shadowsocksjson folder COMMAND**************"
@@ -289,6 +291,14 @@ echo -e "Command 1 to exit [ctrl+x] then press "Y" end hit enter"
 echo -e ""
 echo -e "To Start Edit, Add, create Password of port in shadowsocks choose number 3. Add SS account at menu option." 
 echo -e ""
+echo -e "How to use shadowsocks account?"
+echo -e "Input the following info [IP-PASS-PORT-ENCRYPTION METHOD] to the SSCAP APP for PC, POSTERN APK for android, waterdrop for IOS"
+echo -e "Is this shadowsocks need promo to connect?"
+echo -e "YES!.. this the promo you need any 1 only of this (ps. hindi lahat isa lang). (PROMO list: wattpad5 for 1days, coc5 for 1day, gs15 for 3days) all send to 8080 or use REDEEM (twitter1d) send 4438" 
+echo -e "ALway use 4G only network! do not Recommend to 3G user."
+echo -e ""
+
+
 echo "Thank you! Please type "menu" to back."
 	    break
             ;;
