@@ -29,6 +29,7 @@ function create_ss() {
 function restart_ss() {
 
 	 /etc/init.d/shadowsocks restart
+	echo -e "Success fully Restart your Shadowsocks"
 	menu
 	}
 function change_user_pass() {
