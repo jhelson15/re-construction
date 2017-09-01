@@ -261,8 +261,9 @@ echo -e "PRESS DELETE TO REMOVE TEXT TAPAT MO YUNG ARROW KEY DOON SA TEXT NA EDI
 echo -e "PALITAN MO LANG YUNG PASSWORD QUOTED "editmoitopassword" dont remove the QUOTE."
 echo -e "PAG KA EXIT TYPE KA ULIT menu THEN PRESS 3 TO RESTART AND SHADOWSOCKS ACCOUNT WILL START CORRECTLY."
 echo -e "SA EXPIRATION MANUAL MO LISTA SA EXCEL OR NOTEPAD HINDI TO AUTOMATIC NA MERON EXPIRATION."
-	    
-	    create_ss
+
+echo -e ""
+echo "Thank you! Please type "menu" to back."
 	    break
             ;;
 	 "Add SS account")
