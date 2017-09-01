@@ -218,7 +218,7 @@ PS3='Please enter number your choice [1-19]: '
 options=("Add OVPN account" 
 	 "Shadowsock How to?"	
 	 "Add SS account" 
-	 "Restart SS" 
+	 "Restart SS configuration" 
 	 "Change password for OVPN" 
 	 "lock account" 
 	 "unlock account" 
@@ -300,7 +300,7 @@ echo "Thank you! Please type "menu" to back."
 	    create_ss
 	    break
             ;;
-	   "Restart SS")
+	   "Restart SS configuration")
 	    restart_ss
 	    break
             ;;
