@@ -246,7 +246,11 @@ do
 	    break
             ;;
 	 "Shadowsock How to?")
-              echo -e "Do not delete any text just edit password"
+echo -e ""
+echo -e ""
+echo -e "SHADOWSOCKS HOW TO?"
+echo -e ""
+                echo -e "Do not delete any text just edit password"
 
 echo -e ""
 echo -e "ITO ANG MGA IBIBIGAY MO SA CLIENT MO."
