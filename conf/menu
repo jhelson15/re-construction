@@ -280,7 +280,7 @@ echo -e "*************shadowsocksjson folder COMMAND**************"
 echo -e  "MOVE ARROW KEY TO EDIT TEXT'S [UP-DOWN-LEFT-RIGHT]"
 echo -e "Command 1 to exit [ctrl+x] then press "Y" end hit enter"
 echo -e ""
-echo -e "To Start Edit, Add, create Password of port in shadowsocks choose "2" at menu option." 
+echo -e "To Start Edit, Add, create Password of port in shadowsocks choose "3" Add SS account at menu option." 
 echo -e ""
 echo "Thank you! Please type "menu" to back."
 	    break
