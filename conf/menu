@@ -28,7 +28,6 @@ function create_ss() {
 	echo -e "Type [menu] to back menu option."
 	}
 function restart_ss() {
-
 	 /etc/init.d/shadowsocks restart
 	echo -e "Successfully Restart your Shadowsocks Clients Account"
 	echo -e "Type [menu] to back menu option."
