@@ -35,22 +35,31 @@ function restart_ss() {
 	}
 function change_user_pass() {
 	
-	echo -e [Fill-up the field]
-	read -p "Enter username: " uname
-	read -p "Enter new password for username[$uname] : " Pass
-	    	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
-	useradd -e `date -d "$Date days" +"%Y-%m-%d"` -s /bin/false -M $uname
-	exp="$(change -l $uname | grep "Account expires" | awk -F": " '{print $2}')"
-	echo -e "$Pass\n$Pass\n"|passwd $uname &> /dev/null
-	echo -e ""
-	echo -e "======Password has been change======"
-	echo -e "Username: $uname "
-	echo -e "Password: $Pass"
-	echo -e "===================================="
-	echo -e ""
-	echo -e ""
-	
-	echo -e "Thank you! Please type "menu" to back."
+read -p "Enter Username Who Changed Password: " username
+egrep "^$username" /etc/passwd >/dev/null
+if [ $? -eq 0 ]; then
+read -p "Enter a new Password for the user $username: " password
+
+clear
+echo "Connecting to..."
+sleep 0.5
+echo "Change Password..."
+sleep 0.5
+  egrep "^$username" /etc/passwd >/dev/null
+  echo -e "$password\n$password" | passwd $username
+  clear
+  echo " "
+  echo "---------------------------------------"
+  echo -e "Password for user ${blue}$username${NC} It has been successfully replaced."
+  echo -e "Password for new user ${blue}$username${NC} is ${red}$password${NC}"
+  echo "--------------------------------------"
+  echo " "
+
+else
+echo -e "Username ${red}$username${NC} not found on your VPS"
+exit 0
+fi
+echo -e "Thank you! Please type "menu" to back."
 	}
 
 function lock_account() {
