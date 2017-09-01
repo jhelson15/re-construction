@@ -20,17 +20,17 @@ echo -e "==============================="
 echo -e "Mod by jhelson15"
 echo -e "Type (menu) to back menu option."
 echo -e ""
-}
+	}
 function create_ss() {
 
 	nano /etcshadowsocks.json
+	echo -e "Type [menu] to back MENU OPTION."
 	}
 function restart_ss() {
 
 	 /etc/init.d/shadowsocks restart
+	echo -e "Type [menu] to back MENU OPTION."
 	}
-
-
 function change_user_pass() {
 	
 	read -p "Enter username: " uname
@@ -133,7 +133,7 @@ echo " Usurname : Kill number PID "
 echo "------------------------------------------------"
 
 echo "";
-
+echo -e "Type [menu] to back MENU OPTION."
 echo "Mod by jhelson15";
 
 }
@@ -193,11 +193,9 @@ function used_data(){
 
 clear
 screenfetch
-echo -e "Type [menu] to back MENU OPTION."
-echo "--------------------------------------------------------------------"
-
-echo "----------- Welcom Jelson Barrozo Autoscript -----------------------"
-echo "				Menu					  "
+echo "--------------------------------------------"
+echo "-----Welcom Jelson Barrozo Autoscript ------"
+echo "[Menu]"
 PS3='Please enter number your choice [1-18]: '
 options=("Add User OVPN" "Add SS account" "Restart SS" "Change password" "lock account" "unlock account" "Check ssh user list" "Generate_trial" "Renew User" "Delete User" "User List" "Ram Status" "Speedtest" "Refresh Squid" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
 select opt in "${options[@]}"
