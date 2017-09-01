@@ -246,12 +246,14 @@ do
 	    break
             ;;
 	 "Shadowsock How to?")
-echo -e ""
-echo -e ""
 clear
+echo -e ""
+echo -e ""
+echo -e ""
+echo -e ""
 echo "Connecting to..."
 sleep 0.5
-echo "Change Password..."
+echo "Shadowsocks GUIDElines..."
 sleep 0.5
 echo -e "SHADOWSOCKS HOW TO?"
 echo -e ""
