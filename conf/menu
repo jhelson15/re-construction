@@ -196,7 +196,7 @@ screenfetch
 echo "--------------------------------------------"
 echo "-----Welcom Jelson Barrozo Autoscript ------"
 echo "[Menu]"
-PS3='Please enter number your choice [1-18]: '
+PS1='Please enter number your choice [1-18]: '
 options=("Add User OVPN" 
 	 "Add SS account" 
 	 "Restart SS" 
