@@ -248,6 +248,11 @@ do
 	 "Shadowsock How to?")
 echo -e ""
 echo -e ""
+clear
+echo "Connecting to..."
+sleep 0.5
+echo "Change Password..."
+sleep 0.5
 echo -e "SHADOWSOCKS HOW TO?"
 echo -e ""
                 echo -e "Do not delete any text just edit password"
