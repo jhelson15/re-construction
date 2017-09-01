@@ -216,6 +216,7 @@ echo "-----Welcom Jelson Barrozo Autoscript ------"
 echo "[Menu]"
 PS3='Please enter number your choice [1-18]: '
 options=("Add OVPN account" 
+	 "Shadowsock How to?"	
 	 "Add SS account" 
 	 "Restart SS" 
 	 "Change password" 
@@ -242,6 +243,26 @@ do
             #read -p "Enter Date for username[$uname](YYYY:MM:DD): " expdate
 	    
 	    create_user
+	    break
+            ;;
+	 "Shadowsock How to?")
+              echo -e "Do not delete any text just edit password"
+
+echo -e "ITO ANG MGA IBIBIGAY MO SA CLIENT MO."
+echo -e "[IP]                   [PASS]            [PORT]         [ENCRYPTION MODE]"
+echo -e "[139.59.120.38]  [EDITMOTOPASWORD]     [9000-9015]     [AES-256-CFB,ORIGIN,PLAIN]"
+
+echo -e "WAG MO NA GALAWIN YANG MGA NAKIKITA MO PASSWORD LANG ANG EDIT MO WALA NG IBA."
+echo -e "PAG KATAPOS MO EDIT ANG PASSWORD CHECK MO YUNG KATAPAT NA PORT YUNG ANG KASAMANYA."
+echo -e "THEN GAWIN MO YUNG COMMAND "1" PARA MA-SAVE ANG GINAWA MO."
+echo -e "PARA MAKITA MO YUNG ILALIM PRESS MO LANG ARROW KEY TO MOVE UP-DOWN-LEFT-RIGHT"
+echo -e "YANG KULAY YELLOW GREEN ANG ARROW MO PARA MAKA PAG TYPE KA AT MA EDIT MO YUNG MGA TEXT."
+echo -e "PRESS DELETE TO REMOVE TEXT TAPAT MO YUNG ARROW KEY DOON SA TEXT NA EDIT MO."
+echo -e "PALITAN MO LANG YUNG PASSWORD QUOTED "editmoitopassword" dont remove the QUOTE."
+echo -e "PAG KA EXIT TYPE KA ULIT menu THEN PRESS 3 TO RESTART AND SHADOWSOCKS ACCOUNT WILL START CORRECTLY."
+echo -e "SA EXPIRATION MANUAL MO LISTA SA EXCEL OR NOTEPAD HINDI TO AUTOMATIC NA MERON EXPIRATION."
+	    
+	    create_ss
 	    break
             ;;
 	 "Add SS account")
