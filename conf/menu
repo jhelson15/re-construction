@@ -23,7 +23,7 @@ echo -e ""
 	}
 function create_ss() {
 
-	nano /etcshadowsocks.json
+	nano /etc/shadowsocks.json
 	echo -e "Successfully edit your Shadowsocks Clients Account"
 	echo -e "Type [menu] to back menu option."
 	}
