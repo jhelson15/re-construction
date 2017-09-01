@@ -1,7 +1,7 @@
 #!/bin/bash
 clear                    	        
 function create_user() {
-
+echo -e "[Fill-up the field]"
 read -p "Username : " Login
 read -p "Password : " Pass
 read -p "Expired (Days): " Date
@@ -35,6 +35,7 @@ function restart_ss() {
 	}
 function change_user_pass() {
 	
+	echo -e [Fill-up the field]
 	read -p "Enter username: " uname
 	read -p "Enter new password for username[$uname] : " Pass
 	    	IP=`dig +short myip.opendns.com @resolver1.opendns.com`
@@ -199,7 +200,7 @@ echo "--------------------------------------------"
 echo "-----Welcom Jelson Barrozo Autoscript ------"
 echo "[Menu]"
 PS3='Please enter number your choice [1-18]: '
-options=("Add User OVPN" 
+options=("Add OVPN account" 
 	 "Add SS account" 
 	 "Restart SS" 
 	 "Change password" 
