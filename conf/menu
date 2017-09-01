@@ -1,5 +1,4 @@
 #!/bin/bash
-echo -e "Type [menu] to view OPTION."
 clear                    	        
 function create_user() {
 
@@ -193,7 +192,8 @@ function used_data(){
 }
 
 clear
-screenfetch                       		
+screenfetch
+echo -e "Type [menu] to back MENU OPTION."
 echo "--------------------------------------------------------------------"
 
 echo "----------- Welcom Jelson Barrozo Autoscript -----------------------"
