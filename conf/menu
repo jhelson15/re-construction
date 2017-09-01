@@ -26,6 +26,10 @@ function create_ss() {
 
 	nano /etcshadowsocks.json
 	}
+function restart_ss() {
+
+	 /etc/init.d/shadowsocks restart
+	}
 
 
 function change_user_pass() {
@@ -194,8 +198,8 @@ echo "--------------------------------------------------------------------"
 
 echo "----------- Welcom Jelson Barrozo Autoscript -----------------------"
 echo ""
-PS3='Please enter your choice: '
-options=("Add User OVPN" "Add SS account" "Change password" "lock account" "unlock account" "Check ssh user list" "Generate_trial" "Renew User" "Delete User" "User List" "Ram Status" "Speedtest" "Refresh Squid" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
+PS3='Please enter number your choice [1-18]: '
+options=("Add User OVPN" "Add SS account" "Restart SS" "Change password" "lock account" "unlock account" "Check ssh user list" "Generate_trial" "Renew User" "Delete User" "User List" "Ram Status" "Speedtest" "Refresh Squid" "Users Not Expired"  "Expired Users" "Used Data By Users" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -213,6 +217,10 @@ do
             #read -p "Enter Date for username[$uname](YYYY:MM:DD): " expdate
 	    
 	    create_ss
+	    break
+            ;;
+	   "Restart SS")
+	    restart_ss
 	    break
             ;;
         "Change password")
