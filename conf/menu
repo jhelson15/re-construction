@@ -24,12 +24,12 @@ echo -e ""
 function create_ss() {
 
 	nano /etcshadowsocks.json
-	echo -e "Type [menu] to back MENU OPTION."
+	menu
 	}
 function restart_ss() {
 
 	 /etc/init.d/shadowsocks restart
-	echo -e "Type [menu] to back MENU OPTION."
+	menu
 	}
 function change_user_pass() {
 	
