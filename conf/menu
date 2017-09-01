@@ -24,14 +24,14 @@ echo -e ""
 function create_ss() {
 
 	nano /etcshadowsocks.json
-	echo -e "Success fully edit your Shadowsocks Clients Account"
-	menu
+	echo -e "Successfully edit your Shadowsocks Clients Account"
+	echo -e "Type [menu] to back menu option."
 	}
 function restart_ss() {
 
 	 /etc/init.d/shadowsocks restart
-	echo -e "Success fully Restart your Shadowsocks Clients Account"
-	menu
+	echo -e "Successfully Restart your Shadowsocks Clients Account"
+	echo -e "Type [menu] to back menu option."
 	}
 function change_user_pass() {
 	
