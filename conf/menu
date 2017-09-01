@@ -221,7 +221,7 @@ options=("Add OVPN account"
 select opt in "${options[@]}"
 do
     case $opt in
-        "Add User OVPN")
+        "Add OVPN account")
             #read -p "Enter username: " uname
             #read -p "Enter Password for username[$uname]: " pass
             #read -p "Enter Date for username[$uname](YYYY:MM:DD): " expdate
