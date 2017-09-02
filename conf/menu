@@ -257,7 +257,7 @@ echo "Options Not Available In Menu."
 exit
 fi
 
-
+echo -e "Type menu to back Menu Option. Thank you!."
 }
 function used_data(){
 	echo -e ""
@@ -273,10 +273,10 @@ function used_data(){
 
 clear
 screenfetch
-echo "--------------------------------------------"
-echo "-----Welcom Jelson Barrozo Autoscript ------"
+echo "----------------------------------------------------"
+echo "----------Welcom Jelson Barrozo Autoscript ---------"
 echo "[Menu]"
-PS3='Please enter number your choice [1-19]: '
+PS3='Please enter number your choice [1-20]: '
 options=("Add OVPN account" 
 	 "Shadowsock How to?"	
 	 "Add Shadowsocks account" 
