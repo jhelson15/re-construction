@@ -194,7 +194,71 @@ function not_expired_users(){
 	rm /tmp/expirelist.txt
 		
 }
+function Auto_reboot(){
+#!/bin/bash
+if [ ! -e /usr/local/bin/reboot_otomatis ]; then
+echo '#!/bin/bash' > /usr/local/bin/reboot_otomatis 
+echo 'date=$(date +"%m-%d-%Y")' >> /usr/local/bin/reboot_otomatis 
+echo 'time=$(date +"%T")' >> /usr/local/bin/reboot_otomatis 
+echo 'echo "The server was successfully rebooted on $date at $time." >> /root/log-reboot.txt' >> /usr/local/bin/reboot_otomatis 
+echo '/sbin/shutdown -r now' >> /usr/local/bin/reboot_otomatis 
+chmod +x /usr/local/bin/reboot_otomatis
+fi
 
+echo "-------------------------------------------"
+echo "Automatic Reboot System Menu"
+echo "-------------------------------------------"
+echo "1. Set Auto-Reboot 1 hour once"
+echo "2. Set Auto-Reboot 6 hours once"
+echo "3. Set Auto-Reboot 12 hours once"
+echo "4. Set Auto-Reboot Once a Day"
+echo "5. Set Auto-Reboot once a week"
+echo "6. Set Auto-Reboot once a month"
+echo "7. Turn Off Auto-Reboot"
+echo "8. View log reboot"
+echo "9. Clear log reboot"
+echo "-------------------------------------------"
+read -p "Write your Choices (numbers):" x
+
+if test $x -eq 1; then
+echo "10 * * * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_otomatis
+echo "Auto-Reboot has been successfully set once an hour."
+elif test $x -eq 2; then
+echo "10 */6 * * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_otomatis
+echo "Auto-Reboot has been successfully set 6 hours."
+elif test $x -eq 3; then
+echo "10 */12 * * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_otomatis
+echo "Auto-Reboot has been successfully set up 12 hours."
+elif test $x -eq 4; then
+echo "10 0 * * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_otomatis
+echo "Auto-Reboot has been successfully set once every day."
+elif test $x -eq 5; then
+echo "10 0 */7 * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_otomatis
+echo "Auto-Reboot has been successfully set once a week."
+elif test $x -eq 6; then
+echo "10 0 1 * * root /usr/local/bin/reboot_otomatis" > /etc/cron.d/reboot_otomatis
+echo "Auto-Reboot has been successfully set once a month."
+elif test $x -eq 7; then
+rm -f /etc/cron.d/reboot_otomatis
+echo "Auto-Reboot has been switched off."
+elif test $x -eq 8; then
+if [ ! -e /root/log-reboot.txt ]; then
+	echo "No reboot activity found yet"
+	else 
+	echo 'LOG REBOOT'
+	echo "-------"
+	cat /root/log-reboot.txt
+fi
+elif test $x -eq 9; then
+echo "" > /root/log-reboot.txt
+echo "Auto Reboot Log was deleted!"
+else
+echo "Options Not Available In Menu."
+exit
+fi
+
+
+}
 function used_data(){
 	echo -e ""
 	echo -e "Total Data Usage:"
@@ -230,6 +294,7 @@ options=("Add OVPN account"
 	 "Refresh Squid" 
 	 "Users Not Expired"  
 	 "Expired Users" 
+	 "Auto reboot"
 	 "Used Data By Users" 
 	 "Quit")
 select opt in "${options[@]}"
@@ -372,7 +437,11 @@ echo "Thank you! Please type "menu" to back."
 			expired_users
 			break
 			;;
-		"Used Data By Users")
+	"Auto reboot")
+			Auto_reboot
+			break
+			;;
+	"Used Data By Users")
 			used_data
 			break
 			;;
