@@ -361,7 +361,7 @@ echo -e "-NO!.. "
 echo -e "*How to connect ?"
 echo -e "Use CDC trick-Off/on modem or data-restarting phone or modem-airplain modem off/on"
 echo -e "Kung meron kang atleast 2-3 SIM card use it alternately"
-echo -e "Pahirapan na kasi sa pag connect :( " 
+echo -e "Pahirapan na kasi sa pag connect." 
 echo -e "PS. Alway use GLOBE OR TM SIM 4G only network! do not Recommend to 3G user."
 echo -e ""
 
