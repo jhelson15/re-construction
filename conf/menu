@@ -301,11 +301,7 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Add OVPN account")
-            #read -p "Enter username: " uname
-            #read -p "Enter Password for username[$uname]: " pass
-            #read -p "Enter Date for username[$uname](YYYY:MM:DD): " expdate
-	    
-	    create_user
+            create_user
 	    break
             ;;
 	 "Shadowsock How to?")
@@ -363,6 +359,10 @@ echo -e "Use CDC trick-Off/on modem or data-restarting phone or modem-airplain m
 echo -e "Kung meron kang atleast 2-3 SIM card use it alternately"
 echo -e "Pahirapan na kasi sa pag connect." 
 echo -e "PS. Alway use GLOBE OR TM SIM 4G only network! do not Recommend to 3G user."
+echo -e ""
+echo -e "Youtube TUT for sscap for pc link. https://youtu.be/p0pKxA520Hg credit to. AkosiShukimayi"
+echo -e "Youtube TUT for postern android link. https://youtu.be/zsSWsZ9UwQg credit to. Ragside "
+echo -e "Youtube TUT for waterdrop  IOS link. https://youtu.be/zSLb3qKetts credit to. VPN Philippines"
 echo -e ""
 
 
