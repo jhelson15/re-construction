@@ -357,11 +357,11 @@ echo -e ""
 echo -e "*How to use shadowsocks account?"
 echo -e "-Input the following info [IP-PASS-PORT-ENCRYPTION METHOD] to the SSCAP APP for PC, POSTERN APK for android, waterdrop for IOS"
 echo -e "*Is this shadowsocks need promo to connect?"
-echo -e "-NO!.. 
+echo -e "-NO!.. "
 echo -e "*How to connect ?"
 echo -e "Use CDC trick-Off/on modem or data-restarting phone or modem-airplain modem off/on"
 echo -e "Kung meron kang atleast 2-3 SIM card use it alternately"
-echo -e "Pahirapan na kasi sa pag connect :(" 
+echo -e "Pahirapan na kasi sa pag connect :( " 
 echo -e "PS. Alway use GLOBE OR TM SIM 4G only network! do not Recommend to 3G user."
 echo -e ""
 
