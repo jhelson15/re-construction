@@ -279,7 +279,7 @@ echo "[Menu]"
 PS3='Please enter number your choice [1-20]: '
 options=("Add OVPN account" 
 	 "Shadowsock How to?"	
-	 "Add Shadowsocks account" 
+	 "Add/edit Shadowsocks account" 
 	 "Restart Shadowsocks configuration" 
 	 "Change password for OVPN" 
 	 "lock account for OVPN" 
@@ -325,7 +325,7 @@ echo -e ""
 echo -e ""
 echo -e "ITO ANG MGA IBIBIGAY MO SA CLIENT MO."
 echo -e "[IP]                   [PASS]            [PORT]         [ENCRYPTION MODE]"
-echo -e "[139.59.120.38]  [EDITMOTOPASWORD]     [9000-9015]     [AES-256-CFB,ORIGIN,PLAIN]"
+echo -e "[139.XX.XX.XX]  [EDITMOTOPASWORD]     [9000-9015]     [AES-256-CFB,ORIGIN,PLAIN]"
 echo -e ""
 echo -e "1) WAG MO NA GALAWIN YANG MGA NAKIKITA MO SA JSON FOLDER "PASSWORD" LANG ANG EDIT MO WALA NG IBA."
 echo -e ""
@@ -367,7 +367,7 @@ echo -e ""
 echo "Thank you! Please type "menu" to back."
 	    break
             ;;
-	 "Add Shadowsocks account")
+	 "Add/edit Shadowsocks account")
             create_ss
 	    break
             ;;
