@@ -184,7 +184,7 @@ cd
 wget https://raw.githubusercontent.com/jhelson15/re-construction/master/conf/menu
 mv ./menu /usr/local/bin/menu
 chmod +x /usr/local/bin/menu
-download script
+#download script
 #cd
 #wget https://github.com/rotipisju/MASTER/raw/master/repo/install-premiumscript.sh -O - -o /dev/null|sh
 
@@ -214,10 +214,10 @@ service squid3 restart
 service webmin restart
 
 #ocs_panel
-cd
-wget https://raw.githubusercontent.com/jhelson15/re-construction/master/OCS-Panel.sh
-chmod +x OCS-Panel.sh
-bash OCS-Panel.sh
+#cd
+#wget https://raw.githubusercontent.com/jhelson15/re-construction/master/OCS-Panel.sh
+#chmod +x OCS-Panel.sh
+#bash OCS-Panel.sh
 
 
 # info
