@@ -447,8 +447,8 @@ echo "Thank you! Please type "menu" to back."
 			used_data
 			break
 			;;
-					
-        "Quit")
+		
+       "Quit")
             break
             ;;
         *) echo invalid option;;
