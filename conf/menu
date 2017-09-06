@@ -292,8 +292,8 @@ options=("Add OVPN account"
   	 "Ram Status for OVPN" 
 	 "Speedtest" 
 	 "Refresh Squid" 
-	 "Users Not Expired"  
-	 "Expired Users" 
+	 "Users Not Expired for OVPN"  
+	 "Expired Users for OVPN" 
 	 "Auto reboot"
 	 "Used Data By Users" 
 	 "Quit")
@@ -435,7 +435,7 @@ echo "Thank you! Please type "menu" to back."
 			not_expired_users
 			break
 			;;
-	 "Expired Users")
+	 "Expired Users for OVPN")
 			expired_users
 			break
 			;;
