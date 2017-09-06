@@ -423,16 +423,16 @@ echo "Thank you! Please type "menu" to back."
             cat /tmp/ramcache | grep -v "Swap"
             break
             ;;	
-	"Users Not Expired for OVPN")
-			not_expired_users
-			break
-			;;
 	"Speedtest")
 			./speedtest
 			break
 			;;
 	"Refresh Squid")
 			./refresh
+			break
+			;;
+	"Users Not Expired for OVPN")
+			not_expired_users
 			break
 			;;
 	 "Expired Users")
