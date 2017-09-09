@@ -29,14 +29,9 @@ function create_ss() {
 	echo -e ""
 	echo -e "Bandwidth limit for the port currently added"
 	read -p "Enter the Port:" $port
-	a=$50000000000
-	b=$100000000000
-	echo -e "Chooce here the limit for the port"
-	echo -e "a=50GB"
-	echo -e "b=100GB"
 	read -p "Enter the [50000000000 - 10000000000]limit:" $limit
 	sudo iptables -I OUTPUT -p tcp --sport $port -j DROP
-	sudo iptables -I OUTPUT -p tcp --sport $port -m quota --quota limit -j ACCEPT
+	sudo iptables -I OUTPUT -p tcp --sport $port -m quota --quota $limit -j ACCEPT
 	echo -e "Successfully added limit to the port: $port"
 	
 	clear
