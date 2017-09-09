@@ -304,7 +304,7 @@ screenfetch
 echo "----------------------------------------------------"
 echo "----------Welcom Jelson Barrozo Autoscript ---------"
 echo "[Menu]"
-PS3='Please enter number your choice [1-20]: '
+PS3='Please enter number your choice [1-23]: '
 options=("Add OVPN account" 
 	 "Shadowsock How to?"	
 	 "Add/edit Shadowsocks account" 
