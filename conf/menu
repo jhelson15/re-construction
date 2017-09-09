@@ -48,6 +48,18 @@ function restart_ss() {
 		
 	echo -e "Type [menu] to back menu option."
 	}
+function limit_ss() {
+	sudo iptables -nvL -t filter --line-numbers
+	echo -e "Type [menu] to back menu option."
+	}
+function removeportlimit_ss() {
+	sudo iptables -nvL -t filter --line-numbers
+	read -p "Enter the Chain num: " chain
+	sudo iptables -D OUTPUT $chain
+	sudo iptables -D OUTPUT $chain
+	echo -e "Sucessfully remove the chain num: $chain and remove the limit to the port." 
+	echo -e "Type [menu] to back menu option."
+	}
 function change_user_pass() {
 read -p "Enter Username Who Changed Password: " username
 egrep "^$username" /etc/passwd >/dev/null
@@ -296,6 +308,8 @@ PS3='Please enter number your choice [1-20]: '
 options=("Add OVPN account" 
 	 "Shadowsock How to?"	
 	 "Add/edit Shadowsocks account" 
+	 "View the shadowsocks limit per port"
+	 "Remove limit on Shadowsocks port"
 	 "Restart Shadowsocks configuration" 
 	 "Change password for OVPN" 
 	 "lock account for OVPN" 
@@ -385,11 +399,19 @@ echo -e ""
 echo "Thank you! Please type "menu" to back."
 	    break
             ;;
-	 "Add/edit Shadowsocks account")
+	"Add/edit Shadowsocks account")
             create_ss
 	    break
             ;;
-	   "Restart Shadowsocks configuration")
+	"View the shadowsocks limit per port")
+	    limit_ss
+	    break
+            ;;
+	"Remove limit on Shadowsocks port")
+	    removeportlimit_ss
+	    break
+            ;;
+	"Restart Shadowsocks configuration")
 	    restart_ss
 	    break
             ;;
