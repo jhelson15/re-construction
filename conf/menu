@@ -28,17 +28,16 @@ function create_ss() {
 	echo -e ""
 	echo -e ""
 	echo -e "Bandwidth limit for the port currently added"
-	read -p "Enter the Port:" $port
-	read -p "Enter the [50000000000 - 10000000000]limit:" $limit
-	sudo iptables -I OUTPUT -p tcp --sport $port -j DROP
-	sudo iptables -I OUTPUT -p tcp --sport $port -m quota --quota $limit -j ACCEPT
-	echo -e "Successfully added limit to the port: $port"
-	
+	read -p "Enter the Port: " port
+	read -p "Enter the [50000000000 - 10000000000]limit: " limit
 	clear
 	echo "Connecting to..."
 	sleep 0.5
-	echo "Change Password..."
+	echo "Showdowsocks Restarting..."
 	sleep 0.5
+	echo -e sudo iptables -I OUTPUT -p tcp --sport "$port" -j DROP
+	echo -e sudo iptables -I OUTPUT -p tcp --sport "$port" -m quota --quota "$limit" -j ACCEPT
+	echo -e "Successfully added limit to the port: $port"
 	echo -e "Shadowsocks will restart to start the new added port." 	
 	/etc/init.d/shadowsocks restart
 	echo -e "Type [menu] to back menu option."
