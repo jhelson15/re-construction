@@ -326,7 +326,8 @@ options=("Add OVPN account"
 	 "Expired Users for OVPN" 
 	 "Auto reboot"
 	 "Used Data By Users" 
-	 "Quit")
+	 "Quit"
+	 "exit")
 select opt in "${options[@]}"
 do
     case $opt in
@@ -486,7 +487,11 @@ echo "Thank you! Please type "menu" to back."
 			break
 			;;
 		
-       "Quit")
+       	  "Quit")
+            break
+            ;;
+	  "exit")
+	    exit
             break
             ;;
         *) echo invalid option;;
