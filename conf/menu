@@ -27,18 +27,12 @@ function create_ss() {
 	echo -e "Successfully edit your Shadowsocks Clients Account"
 	echo -e ""
 	echo -e ""
-	echo -e "Bandwidth limit for the port currently added"
-	read -p "Enter the Port: " port
-	read -p "Enter the [ 10000000000 (10GB-10ZERO) OR 1000000000000 (1tb-12ZERO) ]limit: " limit
-	sudo iptables -I OUTPUT -p tcp --sport $port -j DROP
-	sudo iptables -I OUTPUT -p tcp --sport $port -m quota --quota $limit -j ACCEPT
+	
 	clear
 	echo "Connecting to..."
 	sleep 0.5
 	echo "Showdowsocks Restarting..."
 	sleep 0.5
-	echo -e "Successfully added limit to the port: $port"
-	echo -e "Shadowsocks will restart to start the new added port." 	
 	/etc/init.d/shadowsocks restart
 	echo -e "Type [menu] to back menu option."
 	}
@@ -46,6 +40,16 @@ function restart_ss() {
 	 /etc/init.d/shadowsocks restart
 	echo -e "Successfully Restart your Shadowsocks Clients Account"
 		
+	echo -e "Type [menu] to back menu option."
+	}
+function Addlimit_ss() {
+	echo -e "Bandwidth limit for the port currently added"
+	read -p "Enter the Port: " port
+	read -p "Enter the [ 10000000000 (10GB-10ZERO) OR 1000000000000 (1tb-12ZERO) ]limit: " limit
+	sudo iptables -I OUTPUT -p tcp --sport $port -j DROP
+	sudo iptables -I OUTPUT -p tcp --sport $port -m quota --quota $limit -j ACCEPT
+	echo -e "Successfully added limit to the port: $port"
+	echo -e "Shadowsocks will restart to start the new added port." 
 	echo -e "Type [menu] to back menu option."
 	}
 function limit_ss() {
@@ -309,6 +313,7 @@ options=("Add OVPN account"
 	 "Shadowsock How to?"	
 	 "Add/edit Shadowsocks account" 
 	 "View the shadowsocks limit per port"
+	 "Add limit on Shadowsocks port"
 	 "Remove limit on Shadowsocks port"
 	 "Restart Shadowsocks configuration" 
 	 "Change password for OVPN" 
@@ -407,6 +412,10 @@ echo "Thank you! Please type "menu" to back."
 	"View the shadowsocks limit per port")
 	    limit_ss
 	    break
+	     ;;
+	"Add limit on Shadowsocks port")
+	    Addlimit_ss
+	    break
             ;;
 	"Remove limit on Shadowsocks port")
 	    removeportlimit_ss
@@ -490,10 +499,6 @@ echo "Thank you! Please type "menu" to back."
        	  "Quit")
             break
             ;;
-	  "exit")
-	    exit
-            break
-            ;;
-        *) echo invalid option;;
+	 *) echo invalid option;;
     esac
 done
