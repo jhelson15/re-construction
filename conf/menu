@@ -29,10 +29,12 @@ function create_ss() {
 	echo -e ""
 	
 	clear
+	echo "Shadowsocks will restart to start the new added port." 
 	echo "Connecting to..."
 	sleep 0.5
 	echo "Showdowsocks Restarting..."
 	sleep 0.5
+	
 	/etc/init.d/shadowsocks restart
 	echo -e "Type [menu] to back menu option."
 	}
@@ -49,7 +51,7 @@ function Addlimit_ss() {
 	sudo iptables -I OUTPUT -p tcp --sport $port -j DROP
 	sudo iptables -I OUTPUT -p tcp --sport $port -m quota --quota $limit -j ACCEPT
 	echo -e "Successfully added limit to the port: $port"
-	echo -e "Shadowsocks will restart to start the new added port." 
+	
 	echo -e "Type [menu] to back menu option."
 	}
 function limit_ss() {
@@ -304,42 +306,42 @@ function used_data(){
 }
 
 clear
+sleep 0.5
+echo "Connecting..."
+sleep 0.5
 screenfetch
-echo "----------------------------------------------------"
-echo "----------Welcom Jelson Barrozo Autoscript ---------"
+echo "[--------------------oOo(^_~)oOo--------------------]"
+echo "[----------Welcom Jelson Barrozo Autoscript --------]"
+echo "[---------------Contact: 09565125437 ---------------]"
 echo "[Menu]"
 PS3='Please enter number your choice [1-23]: '
-options=("Add OVPN account" 
-	 "Shadowsock How to?"	
+options=("Shadowsock How to?"	
 	 "Add/edit Shadowsocks account" 
 	 "View the shadowsocks limit per port"
 	 "Add limit on Shadowsocks port"
 	 "Remove limit on Shadowsocks port"
 	 "Restart Shadowsocks configuration" 
+	 "Add OVPN account"
+	 "Generate_trial for OVPN"
+	 "User List for OVPN" 
 	 "Change password for OVPN" 
 	 "lock account for OVPN" 
 	 "unlock account for OVPN" 
 	 "Check ssh user list for OVPN" 
-	 "Generate_trial for OVPN" 
 	 "Renew User for OVPN" 
 	 "Delete User for OVPN" 
-	 "User List for OVPN" 
-  	 "Ram Status for OVPN" 
+	 "Ram Status for OVPN" 
 	 "Speedtest" 
 	 "Refresh Squid" 
 	 "Users Not Expired for OVPN"  
 	 "Expired Users for OVPN" 
 	 "Auto reboot"
 	 "Used Data By Users" 
-	 "Quit"
-	 "exit")
+	 "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "Add OVPN account")
-            create_user
-	    break
-            ;;
+        
 	 "Shadowsock How to?")
 clear
 echo -e ""
@@ -425,7 +427,19 @@ echo "Thank you! Please type "menu" to back."
 	    restart_ss
 	    break
             ;;
-        "Change password for OVPN")
+	"Add OVPN account")
+            create_user
+	    break
+            ;;
+        "Generate_trial for OVPN")
+	      generate_trial
+	      break
+	      ;;   
+    	"User List for OVPN")
+            /root/status
+            break
+	    ;;	
+	"Change password for OVPN")
              /root/status
 	    change_user_pass
 	    break
@@ -442,11 +456,7 @@ echo "Thank you! Please type "menu" to back."
             unlock_account
 	    break
             ;;
-        "Generate_trial for OVPN")
-	      generate_trial
-	      break
-	      ;;   
-       "Renew User for OVPN")
+        "Renew User for OVPN")
             read -p "Enter username to renew: " uname
             read -p "Enter expiry date (YYYY-MM-DD): " expdate
             renew_user
@@ -458,10 +468,7 @@ echo "Thank you! Please type "menu" to back."
             delete_user
             break
             ;;		
-	"User List for OVPN")
-            /root/status
-            break
-	    ;;		
+		
 	"Check ssh user list for OVPN")
            check_ssh_user
             break
