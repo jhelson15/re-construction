@@ -408,61 +408,113 @@ echo "Thank you! Please type "menu" to back."
 	    break
             ;;
 	"Add/edit Shadowsocks account")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
             create_ss
 	    break
             ;;
 	"View the shadowsocks limit per port")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
 	    limit_ss
 	    break
 	     ;;
 	"Add limit on Shadowsocks port")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5	
 	    Addlimit_ss
 	    break
             ;;
 	"Remove limit on Shadowsocks port")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
 	    removeportlimit_ss
 	    break
             ;;
 	"Restart Shadowsocks configuration")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
 	    restart_ss
 	    break
             ;;
 	"Add OVPN account")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
             create_user
 	    break
             ;;
         "Generate_trial for OVPN")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
 	      generate_trial
 	      break
 	      ;;   
     	"User List for OVPN")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
             /root/status
             break
 	    ;;	
 	"Change password for OVPN")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
              /root/status
 	    change_user_pass
 	    break
             ;;
 	"lock account for OVPN")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
 	    /root/status
 	    read -p "What username you want Lock ?: " uname
 	    lock_account
 	    break
             ;;
 	"unlock account for OVPN")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
 	    /root/status
 	    read -p "What username you want unLock ?: " uname
             unlock_account
 	    break
             ;;
         "Renew User for OVPN")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
             read -p "Enter username to renew: " uname
             read -p "Enter expiry date (YYYY-MM-DD): " expdate
             renew_user
             break
             ;;
         "Delete User for OVPN")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
 	    /root/status
             read -p "Enter username to be removed: " uname
             delete_user
@@ -470,31 +522,59 @@ echo "Thank you! Please type "menu" to back."
             ;;		
 		
 	"Check ssh user list for OVPN")
+		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
            check_ssh_user
             break
             ;;	
 	"Ram Status for OVPN")
+			clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
 		    free -h | grep -v + > /tmp/ramcache
             cat /tmp/ramcache | grep -v "Swap"
             break
             ;;	
 	"Speedtest")
-			./speedtest
+			clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
+			./speedtest --share
 			break
 			;;
 	"Refresh Squid")
+			clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
 			./refresh
 			break
 			;;
 	"Users Not Expired for OVPN")
+			clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
 			not_expired_users
 			break
 			;;
 	 "Expired Users for OVPN")
+	 		clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
 			expired_users
 			break
 			;;
 	"Auto reboot")
+			clear
+			sleep 0.5
+			echo "connecting..."
+			sleep 0.5
 			Auto_reboot
 			break
 			;;
