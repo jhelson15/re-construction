@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 myip=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0' | head -n1`;
 myint=`ifconfig | grep -B1 "inet addr:$myip" | head -n1 | awk '{print $1}'`;
 
@@ -7,7 +6,7 @@ myint=`ifconfig | grep -B1 "inet addr:$myip" | head -n1 | awk '{print $1}'`;
                green='\e[0;32m'
                NC='\e[0m'
 			   
-               echo "Connecting to rasta-server.net..."
+               echo "Connecting to jelson-server.net..."
                sleep 0.5
                
 			   echo "Checking Permision..."
@@ -42,8 +41,8 @@ done
 
 if [ $flag -eq 0 ]
 then
-   echo  "HI, Send IP @ Password to jelson to make script work!
-   echo  "contact: fb.me/jelsbar or 09565125437"
+   echo  "HI, Send IP @ Password to jelson to make script work!"
+   	echo  "contact: fb.me/jelsbar or 09565125437"
 
 rm -f /root/ip.txt
 
