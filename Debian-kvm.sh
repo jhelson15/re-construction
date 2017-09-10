@@ -27,10 +27,10 @@ then
 ip="ip.txt"
 
 lines=`cat $ip`
-echo $lines
+#echo $lines
 
 for line in $lines; do
-        echo "$line"
+       # echo "$line"
         if [ "$line" = "$myip" ];
         then
                 flag=1
