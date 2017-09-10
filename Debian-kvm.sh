@@ -15,7 +15,6 @@ myint=`ifconfig | grep -B1 "inet addr:$myip" | head -n1 | awk '{print $1}'`;
 			   echo -e "${green}Permission Accepted...${NC}"
                sleep 1
 			   
-              
 flag=0
 	
 #iplist="ip.txt"
