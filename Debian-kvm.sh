@@ -55,6 +55,7 @@ mv screenfetch-dev /usr/bin/screenfetch
 chmod +x /usr/bin/screenfetch
 echo "clear" >> .profile
 echo "screenfetch" >> .profile
+echo "Type [menu] to view menu list." >> .profile
 
 # Install Web Server
 cd
