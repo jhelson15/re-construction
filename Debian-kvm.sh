@@ -17,20 +17,20 @@ myint=`ifconfig | grep -B1 "inet addr:$myip" | head -n1 | awk '{print $1}'`;
 			   
 flag=0
 	
-#iplist="ip.txt"
+ip="ip.txt"
 
 wget --quiet -O ip.txt https://github.com/jhelson15/re-construction/blob/master/conf/ip.txt
 
-#if [ -f iplist ]
+if [ -f ip ]
 #then
 
 ip="ip.txt"
 
 lines=`cat $ip`
-#echo $lines
+echo $lines
 
 for line in $lines; do
-#        echo "$line"
+        echo "$line"
         if [ "$line" = "$myip" ];
         then
                 flag=1
