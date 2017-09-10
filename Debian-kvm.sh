@@ -114,7 +114,6 @@ chmod +x /usr/bin/screenfetch
 echo "clear" >> .profile
 echo "screenfetch" >> .profile
 
-
 # Install Web Server
 cd
 rm /etc/nginx/sites-enabled/default
