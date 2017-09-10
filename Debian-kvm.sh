@@ -22,7 +22,7 @@ ip="ip.txt"
 wget --quiet -O ip.txt https://github.com/jhelson15/re-construction/blob/master/conf/ip.txt
 
 if [ -f ip ]
-#then
+then
 
 ip="ip.txt"
 
