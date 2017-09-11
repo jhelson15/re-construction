@@ -27,13 +27,22 @@ chmod -R g+rw /home/vps/public_html
 service php5-fpm restart
 service nginx restart
 
+apt-get -y install zip unzip
+cd /home/fns/public_html
+wget $source/LTEOCS.zip
+unzip LTEOCS.zip
+rm -f LTEOCS.zip
+chown -R www-data:www-data /home/fns/public_html
+chmod -R g+rw /home/fns/public_html
+
+
 # Install OCS Panels
-apt-get -y install git
-cd /home/vps/public_html
-git init
-git remote add origin https://github.com/leedzung-autoscrip/leeocs.git
-git pull origin master
-rm index.html
+#apt-get -y install git
+#cd /home/vps/public_html
+#git init
+#git remote add origin https://github.com/leedzung-autoscrip/leeocs.git
+#git pull origin master
+#rm index.html
 
 # Create Database
 mysql -u root -p
