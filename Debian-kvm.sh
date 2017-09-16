@@ -250,6 +250,4 @@ echo "==============================================="
 
 
 
-rm -f /root/Debian-kvm.sh
 
-rm -f /root/.bash_history && history -c
